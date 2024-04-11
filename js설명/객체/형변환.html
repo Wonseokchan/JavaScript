@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>형변환</title>
+  </head>
+  <body>
+    <!-- 암시적 형변환 -->
+    <script>
+      const number = 10 + "10";
+      console.log(typeof number);
+
+      const number2 = 10;
+      const str = "10";
+      console.log(number2 === str);
+
+      //명시적 형변환
+      //Number()
+      const number3 = 10 + Number("10");
+      console.log(typeof number3);
+      console.log(number3);
+      //undefined, null도 변환값이 존재함
+      let empty = Number(undefined);
+      const empty2 = Number(null);
+      console.log("empty ==>", empty);
+      console.log("empty2 ==>", empty2);
+
+      //parseInt() : 소괄호값을 정수로
+      //parseFloat(): 소괄호값을 실수로
+      const convert1 = parseInt("10.1");
+      console.log(typeof convert1);
+      console.log(typeof convert1, convert1);
+
+      const convert2 = parseFloat("10.1");
+      console.log(typeof convert2, convert2);
+
+      //문자열
+      //String, toString()
+      let str1 = String(10);
+      console.log("str:", typeof str1);
+
+      let str2 = 10;
+      str2 = str2.toString();
+      console.log("str2:", typeof str2);
+    </script>
+  </body>
+</html>

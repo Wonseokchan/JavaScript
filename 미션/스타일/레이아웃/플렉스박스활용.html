@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스박스활용</title>
+    <style>
+      #main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .menu {
+        height: 40px;
+        background-color: darkseagreen;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+      }
+      .c1 {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        justify-content: space-around;
+      }
+      li {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: center;
+        cursor: pointer;
+        align-items: center;
+      }
+      li:hover {
+        background-color: orange;
+      }
+      .c2 {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        border-left: 1px solid;
+        border-right: 1px solid;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+      }
+      .title {
+        color: orange;
+        font-size: large;
+      }
+      .h {
+        font-weight: bold;
+      }
+      .c3 {
+        display: flex;
+        width: 20%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .a:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .t1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .t2 {
+        background-color: cornsilk;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .fd {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      span {
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <header style="border: 1px solid">
+        <img src="/images/youtube-logo.png" style="width: 60px; height: 40px" />
+        <div class="menu">
+          <div style="margin: 5px">메뉴1</div>
+          <div style="margin: 5px">메뉴2</div>
+          <div style="margin: 5px">메뉴3</div>
+        </div>
+      </header>
+      <div class="container" style="border: 1px solid">
+        <div class="c1">
+          <div class="t1">
+            <div class="a">뉴스</div>
+            <div class="a">엔터</div>
+            <div class="a">스포츠</div>
+            <div class="a">경제</div>
+          </div>
+          <div class="t2">
+            <div class="a">야구</div>
+            <div class="a">축구</div>
+            <div class="a">N골프</div>
+            <div class="a">e스포츠</div>
+          </div>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+          <li>한화 7연승 오예</li>
+        </div>
+        <div class="c2">
+          <div>
+            <img src="/images/짱구1.PNG" />
+            <p class="title">짱구가 좋아</p>
+            <p class="h">
+              짱구는 못말려
+              <br />
+              <span>극장판 개봉하면 짱구보러가야지</span>
+            </p>
+          </div>
+          <div>
+            <img src="/images/짱구2.PNG" />
+            <p class="title">짱구가 좋아</p>
+            <p class="h">
+              짱구는 못말려
+              <br />
+              <span>극장판 개봉하면 짱구보러가야지</span>
+            </p>
+          </div>
+          <div>
+            <img src="/images/짱구1.PNG" />
+            <p class="title">짱구가 좋아</p>
+            <p class="h">
+              짱구는 못말려
+              <br />
+              <span>극장판 개봉하면 짱구보러가야지</span>
+            </p>
+          </div>
+        </div>
+        <div class="c3">
+          <button
+            style="
+              background-color: greenyellow;
+              width: 250px;
+              height: 80px;
+              font-size: large;
+              font-weight: bold;
+              border: 0px;
+            "
+          >
+            로그인 하기
+          </button>
+          <p>아이디찾기 비밀번호찾기</p>
+        </div>
+      </div>
+      <footer style="border: 1px solid">
+        <div class="fd">
+          <img src="/images/짱구2.PNG" />
+          <div>
+            <p style="font-weight: bold">
+              짱구는 못말려 보러가기
+              <br />
+              <span style="font-weight: normal">하루종일 짱구 보기 가능</span>
+            </p>
+          </div>
+        </div>
+        <div class="fd">
+          <img src="/images/짱구2.PNG" />
+          <div>
+            <p style="font-weight: bold">
+              광고이 공부하는 착한 키즈앱
+              <br />
+              <span>하루종일 짱구 보기 가능</span>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

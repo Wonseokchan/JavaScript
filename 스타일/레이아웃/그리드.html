@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        width: 300vw;
+        height: 100vh;
+      }
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      .color1 {
+        background-color: red;
+      }
+      .color2 {
+        background-color: orange;
+      }
+      .color3 {
+        background-color: yellow;
+      }
+      .color4 {
+        background-color: green;
+      }
+      .color5 {
+        background-color: blue;
+      }
+      .container {
+        display: grid;
+        /* grid-template-colums : 열과 관련된 레이아웃 지정 */
+        /* grid-template-columns: 100px 100px 100px 100px 100px; */
+        /* grid-template-columns: repeat(3, 100px); */
+        /* fr : 배율(상대단위) */
+        grid-template-columns: 1fr 2fr 1fr;
+        /* grid-template-rows : 행과 관련된 레이아웃 지정 */
+        grid-template-rows: repeat(4, 100px);
+        /* gap : 간격의 여백크기 */
+        column-gap: 10px;
+        row-gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item color1">cell1</div>
+      <div class="item color2">cell2</div>
+      <div class="item color3">cell3</div>
+      <div class="item color4">cell4</div>
+      <div class="item color5">cell5</div>
+      <div class="item color1">cell6</div>
+      <div class="item color2">cell7</div>
+      <div class="item color3">cell8</div>
+      <div class="item color4">cell9</div>
+      <div class="item color5">cell10</div>
+    </div>
+  </body>
+</html>

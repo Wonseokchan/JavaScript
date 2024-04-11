@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체</title>
+  </head>
+  <body>
+    <!-- 객체자료형 : 배열, 객체리터럴, 함수 -->
+    <script>
+      // 배열 : 배열로 정의한 데이터 = 요소 / 데이터가 있는 위치 = 인덱스
+      let mathScore = 80;
+      let englishScore = 90;
+      let koreanScore = 100;
+
+      //db조회(학교성적테이블)
+      let studentScore = [80, 90, 100];
+      console.log(studentScore);
+
+      // 객체리터럴 {key:value}
+      const student = {
+        name: "신짱구",
+        mathScore: 80,
+        englishScore: 90,
+        koreanScore: 100,
+      };
+      console.log(student);
+
+      const student2 = {
+        name: "신짱구",
+        score: [80, 90, 100],
+        school: {
+          high: "00고등",
+          univ: "00대학",
+        },
+      };
+      console.log(student2);
+      console.log(student2.school["univ"]);
+      console.log(student2.score[2]);
+      const student3 = {
+        name: "김철수",
+        age: 5,
+      };
+      console.log(student3["age"]);
+      console.log(student3.age);
+
+      //심벌 symbol() : 한번 만들면 변경 불가 및 같은 값을 가진 심벌 만들기 불가
+      let symbol1 = Symbol();
+      let symbol2 = Symbol();
+      console.log(symbol1 == symbol2);
+
+      let id = Symbol("id");
+      const member = {
+        name: "shin",
+        [id]: 12345,
+      };
+      console.log(member);
+
+      member.test = "test!!";
+      console.log(member);
+
+      member.id = 9876;
+      console.log(member);
+    </script>
+  </body>
+</html>

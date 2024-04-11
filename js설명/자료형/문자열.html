@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자료형(문자열)</title>
+  </head>
+  <body>
+    <!-- string : ""(큰따옴표) ''(작은따옴표)로 둘러쌓인 값 -->
+    <script>
+      let string1 = "큰따옴표문자열";
+      let string2 = "작은따옴표문자열";
+      console.log(string1);
+      console.log(string2);
+
+      console.log(typeof string1);
+
+      let sentence = '나는 오늘 하루종일 "집에 가고싶다"고 했다';
+      console.log(sentence);
+      const userName = "짱구";
+      let sentence2 = userName + "는 못말려";
+      console.log(sentence2);
+
+      //백틱(템플릿리터럴) : 문자열 더하기
+      let sentence3 = `${userName}가 좋아`;
+      console.log(sentence3);
+
+      let escape1 = "이렇게도 \"따옴표\"를 '표시'할 수 있어";
+      console.log(escape1);
+      let escape2 = `이렇게도 "따옴표"를 '표시'할 수 있어`;
+      console.log(escape2);
+
+      let escape3 = "안녕하세요. \n반갑습니다";
+      console.log(escape3);
+
+      let escape4 = `안녕하세요.
+반갑습니다`;
+      console.log(escape4);
+
+      let result = `가격의 총 합은 ${100 + 200}`;
+      console.log(result);
+
+      //사용자에게 값을 입력받을 수 있도록 하기
+      const age = prompt("나이를 입력하세요.");
+      console.log(`나이는 ${age}`);
+    </script>
+  </body>
+</html>

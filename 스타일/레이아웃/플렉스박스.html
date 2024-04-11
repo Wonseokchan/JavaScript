@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스박스</title>
+    <style>
+      .container {
+        background-color: beige;
+        height: 100vh;
+        display: flex;
+        /* flex-direction: 중심축설정 */
+        /* flex-direction: row; */
+        /* flex-wrap: 내용물이 넘칠때 */
+        /* flex-wrap: wrap; */
+        /* flex-flow: direction + wrap 합쳐서 쓸 수 있다 */
+        flex-flow: row wrap;
+
+        /* justify-content: 중심축에서 어떻게 배치할거야 */
+        justify-content: space-evenly;
+        /* align-items: 교차축에서 어떻게 배치할거야 */
+        align-items: baseline;
+      }
+      .item {
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+      }
+      .item1 {
+        padding: 20px;
+        background-color: red;
+      }
+      .item2 {
+        background-color: orange;
+      }
+      .item3 {
+        background-color: yellow;
+      }
+      .item4 {
+        background-color: green;
+      }
+      .item5 {
+        background-color: blue;
+      }
+      .item6 {
+        background-color: navy;
+      }
+      .item7 {
+        background-color: purple;
+      }
+      .item8 {
+        background-color: pink;
+      }
+      .item9 {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item1">item1</div>
+      <div class="item item2">item2</div>
+      <div class="item item3">item3</div>
+      <div class="item item4">item4</div>
+      <div class="item item5">item5</div>
+      <div class="item item6">item6</div>
+      <div class="item item7">item7</div>
+      <div class="item item8">item8</div>
+      <div class="item item9">item9</div>
+    </div>
+  </body>
+</html>

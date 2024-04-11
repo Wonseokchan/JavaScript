@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델과 display 속성</title>
+    <style>
+      div,
+      span {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+      }
+
+      div {
+        background-color: pink;
+        /* display: inline; 내용물 없어서 안보임 */
+        /* display: inline-block; */
+      }
+
+      span {
+        background-color: yellow;
+        /* display: inline-block; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- display: 박스모델의 성격 변경 가능
+         block:) 요소의 너비가 항상 가로 한줄을 차지(hn, p, div)
+         inline:) 요소의 너비가 콘텐츠 크기만큼만 차지(a, span, strong)
+         inline-block:) inline의 성격을 가지고 있지만, 블록 성격도 가지고 있음
+    -->
+
+    <!-- inline은 물건 자체만을 꾸며줌(콘텐츠 크기에 맞춰서 변경 / width height 개무시) 
+         inline-block 콘텐츠 사이즈 상관없이 가로 세로 길이에 맞춰서 표시
+    -->
+
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그룹&자식&형제선택자</title>
+    <style>
+      .asdf {
+        background-color: yellow;
+      }
+      h2,
+      p {
+        color: blue;
+      }
+      div > p {
+        background-color: yellowgreen;
+        color: black;
+      }
+      div > span {
+        background-color: green;
+      }
+
+      div ul {
+        background-color: pink;
+      }
+      div strong {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 문제1번 -->
+    <h1>문제1번</h1>
+    <h2 class="asdf">첫번째 그룹</h2>
+    <p class="asdf">이것은 첫번째 그룹입니다</p>
+
+    <h2>두번째 그룹</h2>
+    <p>이것은 두번째 그룹입니다</p>
+
+    <!-- 문제2 -->
+    <h1>문제2번</h1>
+    <div>
+      <p>자식1</p>
+      <span>요소</span>
+    </div>
+    <div>
+      <p>자식2</p>
+      <span>요소</span>
+    </div>
+
+    <!-- 문제3 -->
+    <h1>문제3번</h1>
+    <div>
+      <em>
+        <strong>파트1</strong>
+      </em>
+      <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+      </ul>
+    </div>
+    <div>
+      <strong>파트2</strong>
+      <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+      </ul>
+    </div>
+    <strong>파트3</strong>
+    <ul>
+      <li>목록1</li>
+      <li>목록2</li>
+      <li>목록3</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변형</title>
+    <style>
+      .origin-box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 100px;
+        border: 1px solid;
+        box-sizing: border-box;
+      }
+      .change-box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 100px;
+        background-color: pink;
+      }
+      .change-box:hover {
+        /* transform: translate(100px, 200px); */
+        /* transform: rotate(-20deg); */
+        /* scale(n) : n배만큼 커짐 */
+        transform: scale(2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="origin-box"></div>
+    <div class="change-box"></div>
+  </body>
+</html>

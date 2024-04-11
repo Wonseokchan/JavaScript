@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션</title>
+    <style>
+      .custom-box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* animation-name : 키프레임명 
+            animation-duration : 지속시간
+        */
+        animation-name: bgchange;
+        animation-duration: 10s;
+
+        animation-delay: 2s;
+      }
+      @keyframes bgchange {
+        0% {
+          background-color: red;
+        }
+        50% {
+          background-color: green;
+          border: 10px solid;
+        }
+        100% {
+          background-color: blue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--  -->
+    <div class="custom-box"></div>
+  </body>
+</html>

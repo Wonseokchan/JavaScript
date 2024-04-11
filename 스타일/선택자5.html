@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자5</title>
+    <style>
+      /* content : 새로운 콘텐츠를 추가*/
+      p::before {
+        content: "콘텐츠 앞 영역 ";
+        color: red;
+      }
+      p::after {
+        content: " 콘텐츠 뒤 영역";
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 가상요소 선택자
+         html문서에는 존재하지 않음(명시적으로 작성되어있지 않음)
+         존재하는 것처럼 취급해 선택하는 것
+         기준선택자::가상요소선택자 { }
+    -->
+    <p>기준이 되는 텍스트</p>
+  </body>
+</html>

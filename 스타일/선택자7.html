@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자7</title>
+    <style>
+      input:focus {
+        background-color: pink;
+      }
+      input[type="radio"]:checked + label {
+        color: red;
+      }
+      input[type="checkbox"]:checked + label {
+        background-color: pink;
+      }
+      input:disabled {
+        color: red;
+      }
+      button:disabled {
+        color: blue;
+      }
+      button:enabled {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 입력요소 가상 클래스 선택자
+         :focus 입력요소에 커서가 활성화시
+         :checked 체크박스 활성화시
+         :disabled 요소가 비활성화 되었을시
+         :enabled 요소가 활성화 되었을시
+    -->
+    <input type="text" />
+
+    <input type="radio" name="gender" value="M" id="man" /><label for="man"
+      >남</label
+    >
+    <input type="radio" name="gender" value="W" id="woman" /><label for="woman"
+      >여</label
+    >
+    <br />
+    <input type="checkbox" id="sing" /><label for="sing">노래</label>
+    <input type="checkbox" id="drum" /><label for="drum">드럼</label>
+    <input type="checkbox" id="guitar" /><label for="guitar">기타</label>
+    <br />
+    <input type="text" value="기본값" disabled />
+    <button>활성화버튼</button>
+    <button disabled>비활성화버튼</button>
+  </body>
+</html>

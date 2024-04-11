@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>셀렉트박스</title>
+  </head>
+  <body>
+    <!-- select: 콤보박스 생성
+         option: 항목 생성
+    -->
+    <select>
+      <option>항목1</option>
+      <option>항목2</option>
+    </select>
+
+    <select>
+      <optgroup label="중구">
+        <option>오류동</option>
+        <option>대사동</option>
+        <option>목동</option>
+        <option>중촌동</option>
+      </optgroup>
+      <optgroup label="서구">
+        <option>둔산동</option>
+        <option>갈마동</option>
+      </optgroup>
+    </select>
+
+    <!-- 속성들 
+         selected : 활성화
+         size : 노출갯수지정
+         multiple : 여러개클릭(+ctrl)
+    -->
+    <br />
+    대전지역
+    <select size="4" multiple name="area">
+      <optgroup label="중구">
+        <option>오류동</option>
+        <option>대사동</option>
+        <option selected>목동</option>
+        <option>중촌동</option>
+      </optgroup>
+      <optgroup label="서구">
+        <option>둔산동</option>
+        <option>갈마동</option>
+      </optgroup>
+    </select>
+  </body>
+</html>

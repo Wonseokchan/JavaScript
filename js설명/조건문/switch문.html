@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스위치문</title>
+  </head>
+  <body>
+    <script>
+      /* 체크해야할 조건값이 많은 경우 */
+      const food = "melon";
+      switch (food) {
+        case "melon":
+          console.log("멜론");
+          break;
+        case "peach":
+          console.log("복숭아");
+          break;
+        case "apple":
+          console.log("사과");
+          break;
+        default:
+          console.log("여기없는 과일임");
+          break;
+      }
+
+      const score = 95;
+      switch (score) {
+        case 100:
+          console.log("A+");
+          break;
+        case 95:
+          console.log("A");
+          break;
+      }
+    </script>
+  </body>
+</html>

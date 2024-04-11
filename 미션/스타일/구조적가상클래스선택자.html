@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조적가상클래스선택자</title>
+    <style>
+      div > strong {
+        background-color: pink;
+      }
+      div > div > p:nth-of-type(1) {
+        color: red;
+      }
+      div > div + p {
+        background-color: tomato;
+      }
+      li:nth-last-child(2) {
+        background-color: plum;
+      }
+      optgroup:first-child {
+        color: plum;
+      }
+      caption {
+        background-color: darkorange;
+      }
+      tr + tr > td:nth-last-of-type(1) {
+        background-color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 문제 1 -->
+    <h3>문제1번</h3>
+    <div>
+      <div>
+        <strong>title1</strong>
+        <p>the paragraph 1-1</p>
+        <p>the paragraph 1-2</p>
+      </div>
+      <div>
+        <strong>title2</strong>
+        <p>the paragraph 2-1</p>
+        <p>the paragraph 2-2</p>
+      </div>
+      <p>the result paragraph</p>
+    </div>
+    <br />
+
+    <!-- 문제 2 -->
+    <h3>문제2번</h3>
+    <ul>
+      <li>Item1</li>
+      <li>Item2</li>
+      <li>
+        <select>
+          <optgroup label="optgroup1">
+            <option>1-1</option>
+            <option>1-2</option>
+          </optgroup>
+          <optgroup label="optgroup2">
+            <option>2-1</option>
+            <option>2-2</option>
+          </optgroup>
+        </select>
+      </li>
+    </ul>
+    <br />
+
+    <!-- 문제 3 -->
+    <h3>문제3번</h3>
+    <table>
+      <caption>
+        TABLE
+      </caption>
+      <tr>
+        <td>Cell1</td>
+        <td>Cell2</td>
+      </tr>
+      <tr>
+        <td>Cell3</td>
+        <td>Cell4</td>
+      </tr>
+    </table>
+  </body>
+</html>

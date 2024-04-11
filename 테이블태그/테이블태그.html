@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #dddddd;
+      }
+
+      caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <title>Table Tag</title>
+  </head>
+  <body>
+    <!-- table태그:) 테이블 생성 -->
+    <table>
+      <caption>
+        테이블
+      </caption>
+      <tr>
+        <th>행1</th>
+        <td>내용1</td>
+      </tr>
+      <tr>
+        <th>행2</th>
+        <td>내용2</td>
+      </tr>
+    </table>
+    <br />
+
+    <!-- 테이블 병합속성 -->
+    <table>
+      <caption>
+        셀병합 테이블
+      </caption>
+      <tr>
+        <th>번호</th>
+        <th>상품명</th>
+        <th>수량</th>
+        <th>가격</th>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>콜라</td>
+        <td>1개</td>
+        <td>1,500원</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>햄버거</td>
+        <td>3개</td>
+        <td>21,000원</td>
+      </tr>
+      <tr>
+        <th rowspan="2">3</th>
+        <td>복숭아맛탄산수</td>
+        <td>2개</td>
+        <td rowspan="2">3,500원</td>
+      </tr>
+      <tr>
+        <td>청포도맛탄산수</td>
+        <td>1개</td>
+      </tr>
+      <tr>
+        <th>총 금액</th>
+        <td colspan="3">26,000원</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+  </head>
+  <body>
+    <script>
+      for (let i = 0; i < 5; i++) {
+        console.log(i);
+      }
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 3; j++) {
+          console.log(j);
+        }
+      }
+
+      const arr = ["바나나", "사과", "오렌지"];
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      //   forEach문
+      arr.forEach(function (item) {
+        console.log("==> ", item);
+      });
+
+      //   for...in문 : 반복할수있는 객체면 다됨
+      const obj = { name: "철수", age: 5 };
+      for (let key in obj) {
+        console.log(key);
+        console.log(obj[key]);
+      }
+
+      for (let key in arr) {
+        console.log("arr_key: ", key);
+        console.log(arr[key]);
+      }
+
+      //   for...of문 : 배열형태
+      for (value of arr) {
+        console.log("??: ", value);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>단위</title>
+    <style>
+      html {
+        /* font-size: 10px; */
+        font-size: 62.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 절대단위 : 어떤 환경에서도 동일한 크기
+         상대단위 : 부모 요소 또는 웹 브라우저 창 크기에 따라 상대적으로 크기 지정
+    -->
+    <!-- 절대단위 : px
+         모니터 화면 구성 사각형 1개의 크기
+    -->
+    <div style="width: 1000px; background-color: red">절대단위박스</div>
+
+    <!-- 상대단위 : % 부모 요소의 값에 따라서 상대적인 크기 -->
+    <div style="width: 1000px; background-color: pink">
+      부모영역
+      <div style="background-color: aqua; width: 10%">자식영역</div>
+    </div>
+
+    <!-- vw : 1vw 뷰포트(웹브라우저, 모바일창) 너비의 1% 크기 -->
+    <div style="background-color: orange; width: 50vw">vw영역</div>
+    <!-- vh : 1vh 뷰포트 높이의 1% 크기 -->
+    <div style="background-color: purple; height: 50vh">vh영역</div>
+    <!-- em : 부모의 폰트 사이즈 기준으로 지정 -->
+    <div style="font-size: 50px">
+      부모글자
+      <div style="font-size: 2em">자식글자</div>
+    </div>
+    <!-- rem : html폰트 사이즈 기준으로 지정(부모글자 상관없음) -->
+    <div style="font-size: 50px">
+      부모글자2
+      <div style="font-size: 20rem">자식글자2</div>
+    </div>
+  </body>
+</html>

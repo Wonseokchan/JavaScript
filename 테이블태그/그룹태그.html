@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #dddddd;
+      }
+
+      caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <title>그룹태그</title>
+  </head>
+  <body>
+    <!-- thead, tfoot, tbody태그: 행을 묶어서 그룹화 할 때 사용 
+         헤더영역, 푸터영역, 본문영역
+         thead -> tfoot -> tbody 순서여야함
+         ** 데이터 형식에 따라 사용하지 않을 수도 있음
+    -->
+    <table>
+      <caption>
+        행마다 그룹화 가능
+      </caption>
+      <thead>
+        <!-- thead: th 태그로만 열 생성 해야함 -->
+        <tr>
+          <th>제목1</th>
+          <th>제목2</th>
+          <th>제목3</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>결론1</td>
+          <td>결론2</td>
+          <td>결론3</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>내용1</td>
+          <td>내용2</td>
+          <td>내용3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>
+        셀병합 테이블
+      </caption>
+
+      <!-- 여러 테이블 셀에 대한 스타일을 일괄적으로 적용가능하게 해줌
+           col태그:) 하나의 열을 그룹화
+           colgroup태그:) 2개이상의 열을 그룹화(열을 그룹화해서 통일된 스타일 적용)
+
+           <colgroup span="그룹화할 열의 개수" />
+      -->
+      <col style="width: 80px" />
+      <colgroup span="2" style="width: 50px"></colgroup>
+      <col style="width: 100px" />
+
+      <tr>
+        <th>번호</th>
+        <th>상품명</th>
+        <th>수량</th>
+        <th>가격</th>
+      </tr>
+
+      <tr>
+        <th>1</th>
+        <td>콜라</td>
+        <td>1개</td>
+        <td>1,500원</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>햄버거</td>
+        <td>3개</td>
+        <td>21,000원</td>
+      </tr>
+      <tr>
+        <th rowspan="2">3</th>
+        <td>복숭아맛탄산수</td>
+        <td>2개</td>
+        <td rowspan="2">3,500원</td>
+      </tr>
+      <tr>
+        <td>청포도맛탄산수</td>
+        <td>1개</td>
+      </tr>
+
+      <tr>
+        <th>총 금액</th>
+        <td colspan="3">26,000원</td>
+      </tr>
+    </table>
+  </body>
+</html>

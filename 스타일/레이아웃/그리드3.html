@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드3</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        grid-template-rows: 100px auto 50px;
+        grid-template-columns: 1fr 1fr;
+      }
+      header {
+        background-color: red;
+      }
+      main {
+        background-color: aqua;
+      }
+      aside {
+        background-color: green;
+      }
+      footer {
+        grid-column: 1 / -1;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="head">헤더영역</header>
+    <main>메인영역</main>
+    <aside>사이드영역</aside>
+    <footer>푸터영역</footer>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      /* 문제1. 윤년체크하기
+         주어진 년도가 윤년인지 확인 후 콘솔에 출력하기
+         윤년일경우 00년은 윤년입니다
+         윤년이 아닐경우 00년은 윤년이 아닙니다
+      */
+      const year = 2024;
+      const yi1 = year % 4 == 0 && year % 100 != 0;
+      const yi2 = year % 4 == 0 && year % 100 == 0 && year % 400 == 0;
+      if (yi1 || yi2) {
+        console.log(year, "년은 윤년입니다");
+      }
+      /* 문제2. 삼각형타입 확인하기
+         사용자에게 입력받은 3개의 숫자를 통해(3개의 프롬프트 필요)
+         단, 입력받은 숫자는 실수로 변환하기
+
+         삼각형이 맞을 경우 해당 삼각형이 어떤 삼각형인지 콘솔에 출력하기
+         (삼각형종류: 정삼각형, 이등변삼각형, 일반삼각형)
+         삼각형이 아닐 경우, 입력값이 하나라도 취소일 경우
+         삼각형이 아닙니다 콘솔에 출력하기
+      */
+      const a = Number(prompt());
+      const b = Number(prompt());
+      const c = Number(prompt());
+
+      //삼각형인지아닌지, 숫자가하나라도 안들어오는경우
+      const isPut = a == null || b == null || c == null;
+      const isTriangle = a + b > c || a + c > b || b + c > a;
+
+      if (isPut == false) {
+        if (isTriangle == false) {
+          if (a == b && b == c && a == c) {
+            console.log("정삼각형");
+          } else if (a == b || a == c || b == c) {
+            console.log("이등변삼각형");
+          } else {
+            console.log("일반삼각형");
+          }
+        } else {
+          console.log("삼각형이 아닙니다");
+        }
+      } else if (isPut == true) {
+        console.log("숫자가 없습니다");
+      }
+      /* 문제3. 미니계산기 만들기
+         3가지의 프롬프트 입력값을 통해 미니 계산기를 만들기
+         1) 사용할 연산자를 입력하세요(+,-,*,/)
+         2) 첫번째 숫자를 입력하세요
+         3) 두번째 숫자를 입력하세요
+      
+         ex. num1 +(operator) num2
+         
+         예외처리
+         숫자가 모두 입력안된 경우 또는 잘못된 숫자 입력시 콘솔 출력(숫자가 모두 입력되지 않았습니다)
+         나누기의 경우 num2가 0일 경우 콘솔 출력(0으로 나눌 수 없습니다)
+         위의 +,-,*,/ 제외 다른 문자 입력시 콘솔 출력(잘못된 연산자입니다)
+
+         위의 예외처리 제외하고는
+         사용자가 입력한 num1 연산자 num2 = 결과값 콘솔 출력될 수 있게 하기
+      */
+      const operator = prompt("사용할 연산자를 입력하세요(+,-,*,/)");
+      const num1 = Number(prompt("첫번째 숫자를 입력하세요"));
+      const num2 = Number(prompt("두번째 숫자를 입력하세요"));
+
+      const isInput = num1 == null || num2 == null;
+      /*
+       조건1. 연산자가 제대로 들어온경우 들어오지경우
+       조건2. 숫자가 하나라도 입력이 안된경우 다 입력된경우
+       조건3. 연산자에 따른 분기처리
+      */
+      if (operator == null) {
+        console.log("잘못된 연산자입니다.");
+      } else if (operator != null) {
+        if (isInput == false) {
+          if (operator == "+") {
+            console.log(num1 + num2);
+          } else if (operator == "-") {
+            console.log(num1 - num2);
+          } else if (operator == "*") {
+            console.log(num1 * num2);
+          } else if (operator == "/") {
+            if (typeof (num1 / num2) == Number) {
+              console.log(num1 / num2);
+            } else {
+              console.log("0으로 나눌 수 없습니다");
+            }
+          }
+        } else console.log("숫자가 모두 입력되지 않았습니다");
+      }
+    </script>
+  </body>
+</html>

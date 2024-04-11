@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      const score = 100;
+      if (score == 100) {
+        console.log("A+");
+      } else if (score >= 90 && score < 100) {
+        console.log("A");
+      }
+      score == 100
+        ? console.log("A+")
+        : score >= 90 && score < 100
+        ? console.log("A")
+        : ㅁㄹ;
+      /*사용자한테 이름을 입력받을 것
+        1)입력을 취소하면 알림창에 입력을 취소했습니다
+        2)입력을 했다면 사용자 이름은 ???이다 출력
+        alert("알림창");
+      */
+      let name = prompt("이름을 입력하세요");
+      if (name == null) {
+        alert("입력을 취소했습니다");
+      } else {
+        console.log("사용자 이름은 ", name, "이다");
+      }
+    </script>
+  </body>
+</html>

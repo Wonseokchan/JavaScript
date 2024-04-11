@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상요소선택자</title>
+    
+    <style>
+      div::before{
+        content:"현재수업은 ";
+        color : blue;
+      }
+      div::after{
+        content:"입니다";
+        color:blue;
+      }
+      .lecture::before{
+        content:"가상요소 선택자의 종류 중에는 "
+      }
+      .lecture::after{
+        content:"::before 와 ::after 있습니다"
+      }
+      h3+p{
+        background-color: yellow;
+      }
+      #asdf + p{
+        background-color: green;
+      }
+      h3 ~ p {
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 문제1 -->
+    <div>가상요소 선택자</div>
+
+    <!-- 문제2 -->
+    <p class="lecture"></p>
+
+    <!-- 문제3 -->
+    <p>
+      <h3>제목</h3>
+      <p id="asdf">내용1</p>
+      <p>내용2</p>
+      <p>내용3</p>
+    </p>
+  </body>
+</html>

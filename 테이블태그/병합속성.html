@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #dddddd;
+      }
+
+      caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <title>병합속성</title>
+  </head>
+  <body>
+    <!-- 그룹태그 사용하는 이유? 웹 접근성 향상 위해(스크린 리더기 등 사용시) -->
+    <table>
+      <caption>
+        셀병합 테이블
+      </caption>
+      <!-- thead태그:) 헤더영역에 해당하는 행(th태그로 열 생성해야함) -->
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>상품명</th>
+          <th>수량</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <!-- tfoot태그:) 푸터영역에 해당하는 행 -->
+      <tfoot>
+        <tr>
+          <th>총 금액</th>
+          <td colspan="3">26,000원</td>
+        </tr>
+      </tfoot>
+      <!-- tbody태그:) 본문영역에 해당하는 행 -->
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>콜라</td>
+          <td>1개</td>
+          <td>1,500원</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>햄버거</td>
+          <td>3개</td>
+          <td>21,000원</td>
+        </tr>
+        <tr>
+          <th rowspan="2">3</th>
+          <td>복숭아맛탄산수</td>
+          <td>2개</td>
+          <td rowspan="2">3,500원</td>
+        </tr>
+        <tr>
+          <td>청포도맛탄산수</td>
+          <td>1개</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

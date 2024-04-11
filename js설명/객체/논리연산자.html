@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>논리연산자</title>
+  </head>
+  <body>
+    <script>
+      const x = true;
+      const y = true;
+
+      console.log(x && y);
+      console.log(false && y);
+      console.log(x && "나는문자다");
+      console.log(x && 0);
+
+      if (true && "") {
+        console.log("나는참이다");
+      } else {
+        console.log("나는거짓이다");
+      }
+
+      console.log("==>", false || 0);
+      if (false || "문자열") {
+        console.log("나는참!");
+      } else {
+        console.log("나는거짓!");
+      }
+
+      const value1 = "";
+      const value2 = "문자";
+
+      if (value1 && value2) {
+        console.log("빈문자가 없습니다");
+      } else {
+        console.log("빈문자가 있습니다");
+      }
+
+      //!x x가 참 거짓 x가 거짓 참(x의 반대값)
+      console.log(!false);
+      const zero = 0;
+      if (!zero) {
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+      console.log(!true && false);
+      const result = true && false;
+      console.log("result : ", result);
+      console.log("===>", !(true && false));
+
+      const result2 = false && false;
+      console.log("result2 : ", result2);
+
+      console.log(!(true || false));
+
+      //삼항연산자
+      const num = 1;
+      const result3 = x == 1 ? "같다" : "다르다";
+      console.log(result3);
+
+      //중첩삼항연산자
+      num == 1
+        ? typeof num == "string1"
+          ? console.log("문자열1")
+          : console.log("숫자형1")
+        : console.log("1이 아니다");
+      console.log(result3);
+
+      if (num == 1) {
+        console.log("문자열1");
+        console.log("숫자형1");
+      } else {
+        console.log("1이 아니다");
+      }
+
+      const arr = [1, 2, 3];
+      console.log(arr.length);
+      //arr 길이가 3이고, 인덱스 1의 숫자가 2면 true
+      //arr 길이가 3이고, 인덱스 1의 숫자가 2가 아니면 false
+      //arr 길이가 3이 아니면 길이 탈락
+      arr.length == 3
+        ? arr[1] == 2
+          ? console.log("true")
+          : console.log("false")
+        : console.log("길이탈락");
+
+      //괄호, 사칙연산
+      //논리연산자 대입연산자
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델과 display 속성</title>
+
+    <style>
+      .basic_border {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- width, height -->
+    <!-- 브라우저상의 넓이, 높이랑 다른 이유: margin제외하고 합산값이 출력 되기 때문에 -->
+    <div class="basic_border" style="width: 100px; height: 200px"></div>
+
+    <!-- box-sizing
+         위의 합산값을 계산하지 않을 수 있도록 나온 개념
+         box-sizing:<속성값>;
+
+         box-sizing: content-box ==> width,height의 영역을 content영역으로 제한
+         box-sizing: border-box ==> width,height의 영역을 border영역으로 제한
+    -->
+    <div
+      class="basic_border"
+      style="width: 100px; height: 200px; box-sizing: content-box"
+    ></div>
+    <div
+      class="basic_border"
+      style="width: 100px; height: 200px; box-sizing: border-box"
+    ></div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상클래스선택자</title>
+    <style>
+        a:visited{
+            color:green;
+        }
+        a:link{
+            color:red;
+        }
+        .a:hover{
+            background-color: pink;
+        }
+        input:checked + label{
+            color:red;
+        }
+        td:hover{
+            background-color: yellow;
+        }
+        td > input[type="text"]:focus{
+            background-color: green;
+        }
+    </style>
+  </head>
+  <body>
+    <p><strong>문제1</strong></p>
+    <img src="/images/icon_facebook.PNG"></a>
+    <a href="https://www.facebook.com" target="_blank">페이스북</a>
+    <img src="/images/icon_insta.PNG"></a>
+    <a href="https://www.instagram.com" target="_blank">인스타그램</a>
+    <img src="/images/icon_twiitter.PNG"></a>
+    <a href="https://www.twitter.com" target="_blank">트위터</a>
+    <br />
+    <p><strong>문제2</strong></p>
+    <label class="a"><input type="checkbox" />보컬</label>
+    <label class="a"><input type="checkbox" />드럼</label>
+    <label class="a"><input type="checkbox" />기타</label>
+    <br />
+    <p><strong>문제3</strong></p>
+    <input type="checkbox" id="vocal"><label for="vocal">보컬</label>
+    <input type="checkbox" id="drum"><label for="drum">드럼</label>
+    <input type="checkbox" id="guitar"><label for="guitar">기타</label>
+    <br />
+    <p><strong>문제4</strong></p>
+    <table>
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td>내용4</td>
+            <td>내용5</td>
+            <td>내용6</td>
+        </tr>
+        <tr>
+            <td colspan="3">종합내용<input type="text"/></td>
+        </tr>
+    </table>
+    <br />
+    테이블밖 input<input type="text" />
+  </body>
+</html>

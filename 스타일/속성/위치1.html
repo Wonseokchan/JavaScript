@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>위치1</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .bg-blue {
+        background-color: blue;
+      }
+      .bg-red {
+        background-color: red;
+      }
+      .bg-green {
+        background-color: green;
+      }
+      .bg-pink {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body style="margin: 0px">
+    <!-- static : 기본흐름배치 -->
+    <div class="bg-blue" style="position: static">static박스</div>
+    <!-- absoulute : 기본흐름배치x, 절대좌표기준 -->
+    <div class="bg-red" style="position: absolute; top: 100px; left: 100px">
+      absolute박스
+    </div>
+    <!-- relative : 기본흐름배치 + 좌표속성사용가능 -->
+    <div class="bg-green" style="position: relative">relative박스</div>
+    <!-- fixed : absolute + 스크롤 해도 고정-->
+    <div class="bg-pink" style="position: fixed; left: 100px">fixed박스</div>
+    <!-- sticky: relative + 스크롤 해도 고정 -->
+    <div class="bg-red" style="position: sticky">sticky박스</div>
+  </body>
+</html>

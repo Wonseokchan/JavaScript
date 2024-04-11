@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유튜브화면구현</title>
+    <style>
+      header {
+        width: 90%;
+        padding-top: 10px;
+      }
+      button:active {
+        background-color: gray;
+      }
+      ul {
+        padding-left: 0px;
+      }
+      li {
+        list-style-type: none;
+        background-color: gainsboro;
+        padding: 5px;
+        display: inline;
+      }
+      li:hover {
+        background-color: gray;
+        color: white;
+        cursor: pointer;
+      }
+      iframe {
+        margin: 30px;
+        width: 90%;
+        height: 500px;
+      }
+      div {
+        width: 30%;
+        margin: 10px;
+      }
+      div:hover {
+        font-weight: bold;
+      }
+      .cp {
+        color: gray;
+        font-size: 13px;
+      }
+      footer > div {
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-top: 1px solid gainsboro;
+        width: 95%;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      footer > div:hover {
+        background-color: gainsboro;
+      }
+      .fp {
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="/images/youtube-logo.png" style="width: 50px; height: 50px" />
+      <input type="text" />
+      <button>검색</button>
+      <ul>
+        <li>전체</li>
+        <li>음악</li>
+        <li>뉴스</li>
+        <li>라이브</li>
+        <li>애니메이션</li>
+        <li>새로운맞춤동영상</li>
+      </ul>
+    </header>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/kRXKDBmCErE?si=cVOKeXAlOS8QctF1"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
+    <div style="display: inline-block">
+      <img src="/images/video1.PNG" />
+      <p>봄이 왔나봄 | 봄에 듣기 좋은 산뜻한 팝송</p>
+      <p class="cp">essential 조회수 83만회 3주전</p>
+    </div>
+    <div style="display: inline-block">
+      <img src="/images/video2.PNG" />
+      <p>야쿠르트 없으면 케이'윌' 주세요</p>
+      <p class="cp">워크맨 조회수428만회 3년전</p>
+    </div>
+    <div style="display: inline-block">
+      <img src="/images/video3.PNG" />
+      <p>짱구는 못말려 | 짱구는 못말려 네이버 블로그</p>
+      <p class="cp">티빙 조회수1.4만회 13시간전</p>
+    </div>
+    <div style="display: inline-block">
+      <img src="/images/video1.PNG" />
+      <p>봄이 왔나봄 | 봄에 듣기 좋은 산뜻한 팝송</p>
+      <p class="cp">essential 조회수 83만회 3주전</p>
+    </div>
+    <div style="display: inline-block">
+      <img src="/images/video2.PNG" />
+      <p>야쿠르트 없으면 케이'윌' 주세요</p>
+      <p class="cp">워크맨 조회수428만회 3년전</p>
+    </div>
+    <div style="display: inline-block">
+      <img src="/images/video3.PNG" />
+      <p>짱구는 못말려 | 짱구는 못말려 네이버 블로그</p>
+      <p class="cp">티빙 조회수1.4만회 13시간전</p>
+    </div>
+
+    <footer>
+      <div>
+        나중에 볼 동영상
+        <p class="fp">
+          동영상을 나중에 볼 동영상에 저장해 보세요. 목록이 여기에 표시됩니다.
+        </p>
+      </div>
+      <div>
+        재생목록
+        <p class="fp">만들거나 저장한 재생목록이 여기에 표시됩니다.</p>
+      </div>
+      <div>
+        내 클립
+        <p class="fp">마음에 드는 순간을 잘라서 공유해보세요.</p>
+      </div>
+    </footer>
+  </body>
+</html>

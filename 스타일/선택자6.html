@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자6</title>
+    <style>
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: green;
+      }
+      p:hover {
+        font-weight: bold;
+      }
+      button:active {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 가상클래스 선택자
+         기준요소 : 가상클래스 선택자 { }
+    -->
+    <!-- 링크가상 클래스 선택자
+         :link 한번도 방문하지 않은 링크일 때
+         :visited 한번이라도 방문한 링크일 때
+    -->
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.facebook.com">페이스북</a>
+    <!-- 동적 가상 클래스 선택자
+         :hover 마우스 오라갔을 때
+         :active 마우스가 클릭하는 동안
+    -->
+    <p>동적 가상 클래스 선택자</p>
+    <button>버튼누르기</button>
+  </body>
+</html>

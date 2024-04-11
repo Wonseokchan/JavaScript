@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력태그</title>
+  </head>
+  <body>
+    <!-- from태그: 사용자와 상호작용해서 얻은 데이터를 입력받고 서버에게 전송할 때 사용 
+        action속성 : 입력받은 값들을 전송할 url
+        method속성 : 송신방식
+    
+    -->
+    <form action="#" method="post">
+      <!-- input태그 : 입력을 도와주는 태그
+             type속성 : 입력요소의 스타일을 바꿔줌
+             name속성 : form 태그의 입력요소 구분자
+             value속성 : 초깃값
+        -->
+      <input type="text" name="이름" />
+      <br />
+
+      <input type="password" name="비밀번호" />
+      <br />
+      <input type="number" name="학번" />
+      <br />
+      <input type="email" />
+      <br />
+      <input type="tel" />
+      <br />
+      <!-- check박스-->
+      <input type="checkbox" name="area" value="daejeon" />대전
+      <input type="checkbox" checked name="area" value="busan" />부산
+      <input type="checkbox" name="area" value="seoul" />서울
+      <br />
+      <!-- radio버튼-->
+      <input type="radio" name="gender" checked value="M" />남
+      <input type="radio" name="gender" value="W" />여
+      <input type="radio" />자웅동체
+
+      <!--일자들-->
+      <input type="month" />
+      <input type="week" />
+      <input type="time" />
+
+      <!-- 폼과 관련된 버튼 타입-->
+      <br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

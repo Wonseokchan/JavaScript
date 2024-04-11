@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드</title>
+    <style>
+      body {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: 80px auto 100px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        grid-column: 1/-1;
+      }
+      button {
+        border: 0px;
+        border-radius: 10px;
+        width: 130px;
+        height: 40px;
+        cursor: pointer;
+      }
+      main {
+        display: flex;
+        border-top: 0.5px solid gainsboro;
+        border-bottom: 0.5px solid gainsboro;
+
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      footer {
+        padding-left: 10px;
+        grid-column: 1/-1;
+        background-color: black;
+        color: white;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .mt {
+        display: grid;
+        width: 50%;
+        margin: 2rem;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-columns: repeat(2, 50%);
+        border: 0.5px solid gainsboro;
+      }
+      .container {
+        display: grid;
+        margin: 2rem;
+        width: 50%;
+        border-top: 0.5px solid gainsboro;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 10px;
+      }
+      .pic {
+        display: grid;
+        column-gap: 10px;
+        row-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 150px);
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Pacifico&display=swap");
+      .abcd {
+        font-family: "Pacifico", cursive;
+        align-items: center;
+        padding-left: 10px;
+      }
+      .b {
+        display: flex;
+        align-items: center;
+      }
+      .mt > div {
+        padding-left: 10px;
+      }
+      .mt > div > p {
+        font-weight: bolder;
+      }
+      .a {
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <div class="b">
+          <img
+            src="/images/insta_logo.png"
+            style="width: 80px; height: 80px; cursor: pointer; padding: 10px"
+          />
+          <p class="abcd">Instagram</p>
+        </div>
+      </div>
+      <div>
+        <button style="background-color: rgb(0, 149, 246); color: white">
+          <strong>로그인</strong>
+        </button>
+        <button style="background-color: white; color: rgb(0, 149, 246)">
+          <strong>가입하기</strong>
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="mt">
+        <img src="/images/movie.PNG" style="grid-row: 1/-1" />
+        <div>
+          <p>jjang9<br /><span class="a">팔로워 100만</span></p>
+        </div>
+        <div
+          style="
+            border-bottom: 0.5px solid gainsboro;
+            border-top: 0.5px solid gainsboro;
+          "
+        >
+          <p>jg_joa <span></span>😊😊😊</p>
+          <p>zipgaja <span class="a">hahaha!!🤣</span></p>
+          <p>imimim <span class="a">why not?</span></p>
+          <p>jolrida <span class="a">cute,,,</span></p>
+        </div>
+        <div>
+          <p>좋아요 35.4만개</p>
+          <span>7일 전</span>
+        </div>
+      </div>
+      <div class="container">
+        <div style="font-weight: bold; cursor: pointer; padding-top: 10px">
+          jjang9님의 게시물 더 보기
+        </div>
+        <div class="pic">
+          <img src="/images/grid1.PNG" style="grid-column: 1/-1" />
+          <img src="/images/gird2.jpg" style="grid-row: 2/4" />
+          <img src="/images/grid3.png" style="grid-column: 2/-1" />
+          <img src="/images/grid4.jpg" />
+          <img src="/images/grid5.jpg" />
+          <img src="/images/grid6.jpg" />
+          <img src="/images/grid7.jpg" style="grid-column: 2/-1" />
+        </div>
+        <div
+          style="
+            color: rgb(0, 149, 246);
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+          "
+        >
+          게시물 더 보기
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p style="cursor: pointer">Instagram에 로그인</p>
+      <span>
+        로그인하여 친구들의 사진과 동영상을 확인하고 회원님의 좋아할 만한 계정을
+        찾아보세요.
+      </span>
+    </footer>
+  </body>
+</html>

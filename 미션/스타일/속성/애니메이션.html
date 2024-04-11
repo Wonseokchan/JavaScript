@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션</title>
+    <style>
+      .yb {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        position: absolute;
+        left: 100px;
+        animation-name: custom;
+      }
+      .yb:hover {
+        animation-duration: 1s;
+        background-color: green;
+        transition-timing-function: calc(10s);
+      }
+      .pb {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        position: absolute;
+        top: 200px;
+        left: 100px;
+      }
+      .pb:hover {
+        border: 1px solid;
+        transform: rotate(20deg);
+      }
+      .pb2 {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        position: absolute;
+        top: 400px;
+        left: 100px;
+      }
+      .pb2:hover {
+        transform: scale(2);
+      }
+      @keyframes custom {
+        0% {
+          background-color: yellow;
+        }
+        100% {
+          background-color: green;
+        }
+      }
+      .p1 {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 600px;
+        left: 0px;
+        animation-name: abc;
+        animation-duration: 5s;
+      }
+      .p2{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 700px;
+        left: 0px;
+        animation-name: abcd;
+        animation-duration: 5s;
+        animation-delay: 1s;
+      }
+      @keyframes abc {
+        0% {
+          left: 0px;
+        }
+        50% {
+          left: 40px;
+        }
+        100% {
+          left: 60px;
+        }
+      }
+      @keyframes abcd {
+        0% {
+          left: 0px;
+        }
+        50% {
+          left: 40px;
+        }
+        100% {
+          left: 60px;
+          animation-timing;
+        }
+      }
+      .p3{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 800px;
+        left: 0px;
+        animation-name: abcde;
+        animation-duration: 5s;
+      }
+      @keyframes abcde {
+        50%{left: 40px;}
+        100%{left:60px;
+        transform: scale(2);}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yb"></div>
+    <div class="pb"></div>
+    <div class="pb2"></div>
+    <img src="/images/people1.png" class="p1" />
+    <img src="/images/people2.png" class="p2" />
+    <img src="/images/people2.png" class="p3" />
+  </body>
+</html>

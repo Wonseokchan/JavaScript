@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자3</title>
+
+    <style>
+      h3,
+      p {
+        color: purple;
+      }
+
+      div > h3 {
+        color: red;
+      }
+      div > h4 {
+        color: green;
+      }
+      div > div > h3 {
+        color: pink;
+      }
+
+      div strong {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 그룹 선택자
+         선택자1, 선택자2, 선택자3 ..{ }
+    -->
+    <h3>그룹선택자</h3>
+    <p>그룹선택자는 콤마로 연결</p>
+    <h4>그룹선택자로 지정안된 부분</h4>
+
+    <!-- 자식 선택자
+         부모 선택자 > 자식 선택자 { }
+    -->
+    <div>
+      <h3>자식선택자</h3>
+      <div>
+        <h4>자식선택자2</h4>
+        <h3>자식선택자3</h3>
+      </div>
+    </div>
+
+    <!-- 하위 선택자
+         선택자1 선택자2 선택자3 ... { }
+    -->
+    <div>
+      <strong>목록1</strong>
+      <ul>
+        <li>내용1</li>
+        <li>내용2</li>
+      </ul>
+      <strong>목록2</strong>
+      <ul>
+        <li>내용1</li>
+        <li>내용2</li>
+      </ul>
+    </div>
+    <strong>목록3</strong>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조적가상클래스</title>
+    <style>
+      /* p:first-child {
+        color: red;
+      }
+      p:last-child {
+        color: blue;
+      } 
+      p:nth-child(1) {
+        color: red;
+      }
+      p:nth-last-child(1) {
+        color: blue;
+      }
+      p:nth-of-type(1) {
+        color: red;
+      }
+      p:nth-last-of-type(1) {
+        color: blue;
+      }*/
+      p:first-of-type {
+        color: red;
+      }
+      p:last-of-type {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- first-child / last-child 방해물 없어야 함-->
+    <!-- nth-child(n) / nth-last-child 방해물 없어야 함-->
+    <!-- nth-of-type(n) / nth-last-of-type(n) 방해물 상관 x -->
+    <!-- first-of-type / last-of-type 방해물 상관 x -->
+    <div>
+      <strong>방해물</strong>
+      <p>자식1</p>
+      <p>자식2</p>
+      <p>자식3</p>
+    </div>
+    <p>body태그의 자식</p>
+  </body>
+</html>

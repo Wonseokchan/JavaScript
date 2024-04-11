@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Tag</title>
+  </head>
+  <body>
+    <!-- form태그: 사용자와 상호작용해서 정보를 입력받고 서버로 전송하기 위한 양식 -->
+    <!-- <form action="서버 url" method="get 또는 post"></form> 
+         action 속성에는 폼 요소에서 사용자와 상호작용으로 입력받은 값들을 전송할 서버 url
+         method 속성에는 서버 전송시 송신방식
+    -->
+    <!-- name: 서버로 전송 시 적힌 값 이름으로 지정 -->
+
+    <!-- 서버영역이 없으니 #, 보안요구 post, 보안미요구 get -->
+    <form action="#" method="post">
+      <p>
+        <label>
+          아이디
+          <input type="text" name="userId" />
+        </label>
+      </p>
+
+      <p>
+        <label>
+          비밀번호
+          <input type="password" name="userPw" />
+        </label>
+      </p>
+
+      <p>
+        <label>
+          닉네임
+          <input type="text" name="userNickname" />
+        </label>
+      </p>
+
+      <!-- 속성 checked: 선택 상태로 표시
+         (단, radio checkbox일때만 사용가능)
+      -->
+      <p>
+        <label>
+          <input type="radio" value="남자" name="userGender" checked />
+          남자
+          <input type="radio" value="여자" name="userGender" />여자
+        </label>
+      </p>
+
+      <p>
+        <label>
+          성별
+          <select name="userGender">
+            <option value="M">남</option>
+            <option value="W">여</option>
+          </select>
+        </label>
+      </p>
+
+      <!-- 기타 속성
+        disabled: 비활성화
+        readonly: 읽기전용
+        maxlength: 입력 최대 글자수 제한
+        placeholder: 어떤 값 입력해야하는지 설명작성
+      -->
+      <p>
+        <label>
+          학번
+          <input type="text" value="2023010123" disabled />
+        </label>
+      </p>
+      <p>
+        <label>
+          학번
+          <input type="text" value="2023010123" readonly />
+        </label>
+      </p>
+      <p>
+        <label>
+          10글자제한
+          <input type="text" maxlength="10" />
+        </label>
+      </p>
+
+      <!-- 웹 브라우저의 tel요소는 text요소와 차이가 없음
+        (단, 모바일 기기에서는 다르기에 사용자의 편의성 위해 고려하면 좋음)
+      -->
+      <p>
+        <label>
+          전화번호
+          <input type="tel" placeholder="010-0000-0000" />
+        </label>
+      </p>
+
+      <button type="submit">저장하기</button>
+    </form>
+  </body>
+</html>

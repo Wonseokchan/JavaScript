@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자8</title>
+    <style>
+      .list > li:first-child {
+        color: red;
+      }
+      .list > li:last-child {
+        color: blue;
+      }
+      p:first-child {
+        color: deepskyblue;
+      }
+      .list2 > li:nth-child(2) {
+        background-color: blue;
+      }
+      .list2 > li:nth-last-child(3) {
+        background-color: pink;
+      }
+      p:nth-child(1) {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p>문단1</p>
+    <!-- 구조적 가상 클래스 선택자
+         html 태그의 위치, 관계에 따라서 선택
+         E(요소) : 선택자명{ }
+    -->
+    <!-- E:first-child, E:last-child -->
+    <ul class="list">
+      <li>목록1</li>
+      <li>목록2</li>
+      <li>목록3</li>
+    </ul>
+    <!-- E:nth-child(n)
+         E:nth-last-child(n)
+    -->
+    <ul class="list2">
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+    </ul>
+    <br />
+  </body>
+</html>

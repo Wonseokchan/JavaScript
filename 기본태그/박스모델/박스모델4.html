@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델과 display 속성</title>
+    <style>
+      .basic_border {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- display: 박스모델의 성격 변경 가능
+         block:) 요소의 너비가 항상 가로 한줄을 차지(hn, p, div)
+         inline:) 요소의 너비가 콘텐츠 크기만큼만 차지(a, span, strong)
+         inline-block:) inline의 성격을 가지고 있지만, 블록 성격도 가지고 있음
+    -->
+    <h1>block성격태그</h1>
+    <div>block성격태그</div>
+
+    <!-- inline 성격은 width, height 적용 되지 않음 
+         ** padding, margin도 각각 왼쪽 오른쪽만 적용됨
+    -->
+    <span style="padding-left: 10px">콘텐츠크기만큼차지태그</span>
+    <a>콘텐츠크기만큼차지태그</a>
+    <br />
+
+    <img src="/images/jg.jpeg" style="width: 50px" />
+    <img src="/images/jg.jpeg" style="width: 50px" />
+
+    <!-- display 속성을 통해 박스모델 성격변환 또는 태그의 성격변환 가능 -->
+    <div class="basic_border">block 성격</div>
+    <div class="basic_border" style="display: inline">inline 성격</div>
+    <div class="basic_border" style="display: inline">inline 성격</div>
+  </body>
+</html>

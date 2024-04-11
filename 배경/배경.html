@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경설정</title>
+    <style>
+      .size {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- background-color: 배경색상넣기 -->
+    <div class="size" style="background-color: red"></div>
+    <!-- background-image: 배경이미지넣기 -->
+    <div class="size" style="background-image: url('/images/jg.jpeg')"></div>
+    <!-- background-size: 배경이미지 크기지정 
+         cover: 이미지 가로세로 비율 유지하면서 배경 꽉차게
+    -->
+    <div
+      class="size"
+      style="background-image: url('/images/jg.jpeg'); background-size: cover"
+    ></div>
+    <!-- background-position: 이미지 위치지정 -->
+    <div
+      class="size"
+      style="
+        background-image: url('/images/jg.jpeg');
+        background-position: right;
+      "
+    ></div>
+  </body>
+</html>

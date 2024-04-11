@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자2</title>
+
+    <style>
+      a {
+        color: blue;
+      }
+      a[href] {
+        color: green;
+      }
+      [title] {
+        color: pink;
+      }
+      a[target="_blank"] {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 기본속성 선택자 -->
+    <a>href 없는 a태그</a>
+    <br />
+    <a href="https://www.naver.com">href 있는 a태그</a>
+    <br />
+    <a href="#" target="_blank">새창열기</a>
+    <br />
+    <a href="#" target="_self">새창열기</a>
+    <br />
+    <p title="제목">title1</p>
+    <p>title2</p>
+    <strong title="제목">title3</strong>
+  </body>
+</html>

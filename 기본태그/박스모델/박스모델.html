@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델</title>
+  </head>
+  <body>
+    <!-- 각각의 태그들이 웹페이지에 표현될때 부피감을 결정(태그들은 박스로 둘러쌓여있음) -->
+
+    <!-- Box model이란, html 요소가 사각형의 박스로 둘러쌓여 있다는 개념
+         margin:) 요소의 외부여백(순서: 위 오른쪽 아래 왼쪽)
+         border:) 요소의 테두리(경계선)
+         padding:) 요소의 내부 여백
+         content:) 요소의 내용
+    -->
+    <div>마진영역없음</div>
+
+    <div style="margin-top: 20px">마진영역있음</div>
+    <div style="margin: 10px 20px 30px 40px">마진영역있음2</div>
+
+    <!-- 20+30 더해서 50px의 간격이 아닌 30이 적용됨 
+         더 큰값이 적용됨으로 겹쳐짐
+    -->
+    <div style="margin-bottom: 20px">마진겹침현상</div>
+    <div style="margin-top: 30px">마진겹침현상</div>
+
+    <!-- border-width 테두리 굵기
+         border-style 테두리 모양
+         border: 굵기 모양 컬러
+    -->
+    <div style="border-width: 2px; border-style: solid">테두리실선</div>
+    <div style="border-width: 2px; border-style: dotted">테두리점선</div>
+    <div style="border: 2px solid red">테두리한번에</div>
+
+    <!-- padding -->
+    <div style="padding: 10px 20px 30px 40px">패딩영역있음</div>
+  </body>
+</html>

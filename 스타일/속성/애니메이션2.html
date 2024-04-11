@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션2</title>
+    <style>
+      .custom-box {
+        width: 100px;
+        height: 100px;
+        animation-name: bg;
+        animation-duration: 5s;
+        background-color: red;
+        animation-delay: 2s;
+        animation-fill-mode: backwards;
+      }
+      @keyframes bg {
+        0% {
+          background-color: white;
+        }
+        50% {
+          width: 150px;
+          height: 150px;
+          background-color: gray;
+        }
+        100% {
+          width: 200px;
+          height: 200px;
+          background-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="custom-box"></div>
+  </body>
+</html>
