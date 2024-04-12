@@ -17,6 +17,11 @@
       });
       console.log("1번 : ", sum);
 
+      /* for..of문 */
+      // for(const item of numArray){
+      //   sum +=item;
+      // }
+      // console.log(sum);
       /* 문제2. 주어진 배열에서 최댓값, 최솟값 찾기 
          단, 기본 for문 사용 하지 않고 반복은 1번만 돌리기
       */
@@ -34,14 +39,15 @@
       console.log("2번");
       console.log("최댓값 : ", max);
       console.log("최솟값 : ", min);
-
+      //for문 x
+      console.log("쌤ver max :", Math.max.apply(null, numArr));
+      console.log("쌤ver min :", Math.min.apply(null, numArr));
       /* 문제3. 처음 두 개의 숫자가 1이고
                 그 뒤의 숫자는 바로 앞 두 숫자의 합인 수열을 출력
                 결과값: [1, 1, 2, 3, 5, 8]
                 단, 아무 for문 사용해도 상관없음 
       */
       let fib = [1, 1];
-      let cnt = 0;
       for (let i = 0; i < 4; i++) {
         fib.push(fib[i] + fib[i + 1]);
       }
@@ -62,7 +68,6 @@
       const height = 5;
       for (let i = 0; i <= height; i++) {
         var star = "";
-
         var blank = "";
         for (let k = 0; k < height - i; k++) {
           blank += " ";
@@ -70,7 +75,7 @@
         for (let j = 0; j < 2 * i - 1; j++) {
           star += "*";
         }
-        console.log(blank + star + blank);
+        console.log(blank + star);
       }
 
       for (let i = height - 1; i > 0; i--) {
@@ -82,7 +87,7 @@
         for (let k = 0; k < height - i - 1; k++) {
           blank += " ";
         }
-        console.log(blank + star + blank);
+        console.log(blank + star);
       }
     </script>
   </body>
