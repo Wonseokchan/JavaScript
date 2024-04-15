@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수확장(매개변수)</title>
+  </head>
+  <body>
+    <script>
+      /* */
+      function gugudan(num) {
+        console.log(`${num}단`);
+        for (let i = 1; i < 10; i++) {
+          console.log(num * i);
+        }
+      }
+      //함수호출할 때 보내주는 값 : 인수
+      //함수명(인수1, 인수2, ...)
+      gugudan(2);
+
+      //매개변수의 기본값
+      function sum(num1 = 10, num2 = 20) {
+        console.log(`${num1} + ${num2} = ${num1 + num2}`);
+      }
+      sum(1, 2);
+      sum(1);
+
+      const min = (num1, num2 = 10) => {
+        console.log(`${num1} - ${num2} = ${num1 - num2}`);
+      };
+      min(1, 2);
+      min(1);
+
+      /* 1) 화살표함수, 변수에 할당 
+         2) 인수로 10, 20 넘기기
+         3) 매개변수로 넘어온 값 중에 큰 값을 콘솔에 출력
+      */
+      const maxN = (num1, num2) => {
+        if (num1 > num2) {
+          console.log(num1);
+        } else if (num1 < num2) {
+          console.log(num2);
+        }
+      };
+      maxN(10, 20);
+    </script>
+  </body>
+</html>

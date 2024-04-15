@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수정의방법</title>
+  </head>
+  <body>
+    <script>
+      /* 1.함수선언문 정의 */
+      //함수정의
+      function writeNumber() {
+        //기능
+        for (let i = 0; i < 11; i++) {
+          console.log(i);
+        }
+      }
+      writeNumber(); //함수호출
+
+      /* 2.함수표현식정의 */
+      const gugudan = function () {
+        for (let i = 1; i < 10; i++) {
+          console.log(`${2 * i}`);
+        }
+      };
+      gugudan();
+
+      //네이밍된 함수를 변수에 할당하면 변수이름으로 함수를 호출
+      const gugudan2 = function fn_gugudan() {
+        for (let i = 1; i < 10; i++) {
+          console.log(`${2 * i}`);
+        }
+      };
+      gugudan2();
+
+      /* 3.화살표함수 */
+      const arrowFunction = () => {
+        for (let i = 1; i < 10; i++) {
+          console.log(`${2 * i}`);
+        }
+      };
+      arrowFunction();
+
+      const hi = () => {
+        alert("안녕하세요");
+      };
+      hi();
+    </script>
+  </body>
+</html>

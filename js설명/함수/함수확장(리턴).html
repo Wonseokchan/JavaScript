@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수확장(리턴)</title>
+  </head>
+  <body>
+    <script>
+      /* 리턴
+         1) 함수를 외부로 데이터를 반환
+         2) 단순 함수 실행 종료
+      */
+      function sum(num1, num2) {
+        const result = num1 + num2;
+        return result; //반환값
+      }
+      const sumResult = sum(1, 2);
+      console.log(sumResult);
+
+      function gugudan(num) {
+        /*if (typeof num == "number") {
+          for (let i = 1; i < 10; i++) {
+            console.log(num * i);
+          }
+        }*/
+
+        if (typeof num != "number") {
+          return;
+        }
+        for (let i = 1; i < 10; i++) {
+          console.log(num * i);
+        }
+      }
+      gugudan(1);
+
+      const result = (num1, num2) => {
+        return num1 + num2;
+      };
+      const total = result(10, 20);
+      console.log(total);
+
+      //{}있을경우에 반환값은 return 존재해야함
+      //{}없을경우에 반환값은 return 없어도됨
+      const result2 = (num1, num2) => num1 + num2;
+      const total2 = result2(10, 20);
+      console.log(total2);
+    </script>
+  </body>
+</html>

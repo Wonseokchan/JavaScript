@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 미니미션. 매개변수로 넘겨받은 수가 소수인지 확인하는 함수 만들기 
+         1) 화살표함수 활용
+         2) 결과값은 alert 출력
+         **소수: 1이하가 아니고, 2부터 입력된 숫자의 제곱근까지의 수로 나누었을때 나머지가 0이 아니어야함
+         Math.sqrt(숫자); //주어진 숫자의 제곱근을 반환
+      */
+      const mini = (num) => {
+        if (num <= 1) {
+          alert("소수 아님");
+          return;
+        }
+
+        for (let i = 2; i < Math.sqrt(num); i++) {
+          if (num % i != 0) {
+            alert("소수임");
+          } else {
+            alert("소수 아님");
+          }
+        }
+      };
+      mini(8);
+    </script>
+  </body>
+</html>
