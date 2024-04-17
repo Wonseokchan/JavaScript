@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수특징</title>
+  </head>
+  <body>
+    <script>
+      /* 스코프 : 선언한 변수의 적용 범위
+            1) 함수스코프 2) 블록스코프 3) 전역스코프 4)지역스코프
+        */
+      //전역스코프랑 지역스코프가 같은 식별자인 경우
+      //지역스코프에서는 지역스코프가 먼저 적용
+      let num = 10; //전역스코프
+      let num2 = 100;
+      function sum(param, param2) {
+        let num = 20; //지역스코프
+        document.write(num);
+        document.write(param + param2);
+      }
+      sum(num, num2);
+    </script>
+  </body>
+</html>

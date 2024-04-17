@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백함수</title>
+  </head>
+  <body>
+    /
+    <script>
+      /*function showData(name, age) {
+        alert(`${name}님 나이는 ${age}`);
+      }
+      function getData(callback) {
+        let userName = prompt("이름");
+        let userAge = prompt("나이");
+        callback(userName, userAge);
+      }
+      getData(showData);*/
+
+      /* 1) inputVal 함수 생성
+         -해당 함수의 매개변수로 sum 함수 받기
+         -기능 : 사용자에게 두개의 숫자를 입력받고 
+                 sum 호출시 두개의 숫자 인수로 넘겨줌
+         2) sum 함수 생성
+         - 기능 : 해당 함수는 매개변수로 받은 두개의 수를 합산하여 알림창 띄우기
+      */
+      function inputVal(callback) {
+        let num1 = prompt("숫자1");
+        let num2 = prompt("숫자2");
+        callback(num1, num2);
+      }
+      function sum(n1, n2) {
+        alert(Number(n1) + Number(n2));
+      }
+      inputVal(sum);
+    </script>
+  </body>
+</html>

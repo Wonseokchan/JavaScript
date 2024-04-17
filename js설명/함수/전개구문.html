@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>전개구문</title>
+  </head>
+  <body>
+    <script>
+      /* 전개구문 : 배열처럼 값이 다양한 자료(객체)를 한꺼번에 인수로 넘겨줄때
+                    배열과 배열을 합칠 때 (하나의 덩어리로 만들 때)
+      */
+      const arr = ["사과", "바나나", "복숭아"];
+      console.log(arr);
+      console.log(...arr); //spread연산자(...) --> 배열에 있는 값만 보여줌
+
+      const arr2 = ["메론", "포도"];
+      const newArray = [...arr, ...arr2];
+      const newArray2 = [...arr, arr2];
+      const newArray3 = [arr, arr2];
+      console.log(newArray);
+      console.log(newArray2);
+      console.log(newArray3);
+
+      const obj = { name: "신짱구" };
+      const obj2 = { age: 5 };
+
+      const newObj = { obj, obj2 };
+      console.log(newObj);
+      console.log({ ...obj, ...obj2 });
+
+      /* 나머지 매개변수 */
+      function addNum(a, b) {
+        console.log("sum: ", a + b);
+      }
+      addNum(1, 2);
+
+      function addNum2(...param) {
+        let sum = 0;
+        for (let i = 0; i < param.length; i++) {
+          sum += param[i];
+        }
+        console.log(sum);
+      }
+      addNum2(1, 2, 3, 4, 5);
+
+      //배열과 number 받아서 가장 큰 수 리턴
+      const array1 = [10, 20, 30];
+      const array2 = [30, 40, 50];
+      const num1 = 10;
+      const num2 = 20;
+      function maxNum(...param) {
+        //가장 큰 수 리턴
+        let max = Number.MIN_VALUE;
+        const newArr = [];
+        for (item of param) {
+          if (max < item) {
+            max = item;
+          }
+        }
+        return max;
+      }
+      const maxnum = maxNum(...array1, ...array2, num1, num2);
+      console.log("가장 큰 수 : ", maxnum);
+    </script>
+  </body>
+</html>

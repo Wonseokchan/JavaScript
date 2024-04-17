@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머함수</title>
+  </head>
+  <body>
+    <script>
+      /* 타이머함수 : 특정시간이 되었을 때 함수 실행 
+                        특정 시간동안 함수 반복 위해 실행
+        */
+      //setInterval(콜백함수, 시간) : 일정 시간마다 반복
+      function greeting() {
+        console.log("안녕");
+      }
+      //setInterval(greeting, 3000); //1000 = 1초
+
+      //직접함수를 명시할 수 있음
+      /*setInterval(() => {
+        console.log("집가자");
+      }, 3000); */
+      //clearInterval() : 반복실행 멈추기
+      let count = 0;
+      const timer = setInterval(() => {
+        console.log("안녕");
+        count++;
+        if (count == 3) {
+          //반복실행 종료
+          clearInterval(timer);
+        }
+      }, 2000);
+
+      /* setTimeout(콜백함수, 시간) : 특정시간 이후 실행 */
+      function fn_hello() {
+        console.log("hi!!");
+      }
+      setTimeout(fn_hello, 2000);
+
+      function eventAlert() {
+        alert("당첨되었습니다!!");
+      }
+
+      setTimeout(() => {
+        eventAlert();
+      }, 3000);
+
+      //3초 후에 사용자에게 숫자 입력받는 타이머 함수 만들기
+      function inputNum() {
+        const number = prompt("숫자 입력");
+      }
+      setTimeout(inputNum, 3000);
+    </script>
+  </body>
+</html>

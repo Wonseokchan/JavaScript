@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>즉시실행함수</title>
+  </head>
+  <body>
+    <script>
+      const init = () => {
+        document.write("초기화영역");
+      };
+      init();
+
+      //즉시실행함수
+      //한번만 사용할 경우 굳이 위의 방식처럼 선언할 이유 없음
+      (function init2() {
+        document.write("초기화영역!!");
+      })();
+
+      //즉시실행함수로 사용된 함수명은 다시 재사용가능
+      function init2() {
+        console.log("???");
+      }
+      init2();
+
+      (() => {
+        document.write("넌찍히니?");
+      })();
+
+      (function sum(param, param2) {
+        document.write(param + param2);
+      })(100, 200);
+    </script>
+  </body>
+</html>
