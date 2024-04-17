@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체</title>
+  </head>
+  <body>
+    <script>
+      /* 객체 : 정보와 동작을 모아 놓은 것 
+            js객체 1) 내장객체 2) 문서객체모델(dom) 3) 웹브라우저객체 4) 사용자정의객체
+      */
+      /* 사용자정의객체 : 여러개의 프로퍼티로 구성(프로퍼티=값, 값 형태)
+                         만약, 프로퍼티가 함수로 되어있을 경우 = 메서드
+     */
+
+      //객체리터럴 => {키:값} 키(문자열, 심벌)
+
+      const user1 = {};
+      const user2 = new Object();
+
+      console.log(user1);
+
+      const user = { name: "이00", number: [1, 2, 3], number2: { age: 5 } };
+      console.log(user);
+
+      const user3 = {
+        name: "신짱구",
+        age: function () {
+          console.log("짱구는 5살임");
+          return "집갈래";
+        },
+        age2() {
+          console.log("짱구는 5살임");
+          return "222";
+        },
+      };
+      const result = user3["age"](); // age에 리턴값이 없어 undefined출력
+      console.log(result);
+      console.log(user3.age2());
+    </script>
+  </body>
+</html>

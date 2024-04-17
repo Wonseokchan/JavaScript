@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1급시민</title>
+  </head>
+  <body>
+    <script>
+      /* 1. 변수에 함수 할당 가능 */
+      function add(a, b) {
+        return a + b;
+      }
+      const result = add;
+      console.log(result);
+      console.log(result(1, 2));
+
+      const result2 = add(10, 20);
+      console.log(result2);
+
+      /* 2. 함수를 다른 함수로 전달 가능 */
+      function hello() {
+        return "안녕";
+      }
+      function bye() {
+        return "잘가";
+      }
+      function userCheck(name, fn) {
+        console.log(`${name}님`, fn());
+      }
+      userCheck("이00", hello);
+      userCheck("김00", bye);
+
+      /* 3. 함수에서 다른 함수를 반환 */
+      const init = () => {
+        return function (a, b) {
+          return a - b > 0 ? a - b : b - a;
+        };
+      };
+      const result3 = init()(10, 20);
+      console.log(result3);
+    </script>
+  </body>
+</html>

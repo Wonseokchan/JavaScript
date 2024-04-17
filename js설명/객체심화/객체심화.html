@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체심화</title>
+  </head>
+  <body>
+    <script>
+      /* 배열요소 object */
+      const develop = [
+        { category: "js", grade: "A" },
+        { category: "java", grade: "B" },
+      ];
+      console.log(develop);
+      for (item of develop) {
+        console.log("=>", item.grade);
+        if (item.grade == "A") {
+          console.log("잘함");
+        }
+      }
+    </script>
+  </body>
+</html>

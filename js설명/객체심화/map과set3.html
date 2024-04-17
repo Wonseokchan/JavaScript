@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map과set3</title>
+  </head>
+  <body>
+    <script>
+      /* 맵의 메서드 */
+      /* keys() : 키 모두 반환
+           values() : 값 모두 반환
+           entries() : [키,값]형태로 모두 반환
+        */
+      const book = new Map([
+        ["category", "java"],
+        ["grade", "A"],
+        ["name", "신짱구"],
+      ]);
+      console.log(book.keys());
+      console.log(book.values());
+      console.log(book.entries());
+
+      for (item of book) {
+        console.log("-->", item);
+      }
+
+      for (item of book.keys()) {
+        console.log("keys : ", item);
+      }
+      for (item of book.values()) {
+        console.log("value : ", item);
+      }
+    </script>
+  </body>
+</html>

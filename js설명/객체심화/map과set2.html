@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map과 set2</title>
+  </head>
+  <body>
+    <script>
+      /* 맵의 메서드 */
+      const book = new Map([
+        ["category", "develop"],
+        ["color", "red"],
+      ]);
+      console.log(book);
+      //size : 요소의 갯수를 알려주는 프로퍼티
+      console.log(book.size);
+
+      //get(): 해당 키의 값을 반환하는 메서드
+      console.log(book.get("category"));
+      console.log(book.get("size")); //undefined
+
+      //has() : 해당 키에 값이 있는지 체크해서 boolean타입으로 반환하는 메서드
+      console.log(book.has("color")); //true
+      console.log(book.has("size")); // false
+
+      //delete(키), clear(): 특정 프로퍼티 삭제 / 프로퍼티 전체 삭제
+      const result = book.delete("color");
+      console.log(result); //삭제되면 true
+      console.log(book);
+
+      book.clear(); //map의 모든요소 삭제(map은 살아있음)
+      console.log(book);
+    </script>
+  </body>
+</html>

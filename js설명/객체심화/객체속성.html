@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체속성</title>
+  </head>
+  <body>
+    <script>
+      /* 객체리터럴 : 문자열 */
+      const person = {
+        name: { first: "짱구", last: "신" },
+        age: 5,
+        likes: ["철수", "맹구"],
+        fn_title: function () {
+          return "짱구는 못말려";
+        },
+        "person job": "떡잎마을방범대", //키 값 띄어쓰기하려면 "" 안에
+      };
+      console.log(person.name.last);
+      console.log(person["person job"]);
+      //alert(person.fn_title());
+
+      person["person list"] = ["1", "2", "3"];
+      console.log(person);
+
+      //객체속성 삭제
+      delete person["person list"];
+      console.log(person);
+    </script>
+  </body>
+</html>
