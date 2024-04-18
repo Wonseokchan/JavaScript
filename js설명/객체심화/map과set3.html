@@ -21,6 +21,11 @@
       console.log(book.values());
       console.log(book.entries());
 
+      /* keys(), values(), entries() 통해서 반환되는 값은
+        iterable한 객체
+        
+        위의 메서드를 통해서 반환된 값을 for...of문을 돌릴 수 있음
+      */
       for (item of book) {
         console.log("-->", item);
       }

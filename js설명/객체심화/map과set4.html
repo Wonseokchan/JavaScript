@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map과set4</title>
+  </head>
+  <body>
+    <script>
+      /* Set() : 키 없이 여러개의 값을 모아놓음(배열)
+                   중복값은 불가(배열은 중복값 가능)
+        */
+      const arr = [1, 2, 3];
+      arr.push(3);
+      console.log(arr);
+
+      const newSet = new Set();
+      //add() : set에 값 추가
+      newSet.add(1);
+      newSet.add(2);
+      newSet.add(1); //중복불가
+      console.log(newSet);
+
+      //size : 갯수반환
+      console.log(newSet.size);
+
+      //has(): 값 있는지 체크   true | false
+      console.log(newSet.has(2));
+
+      //delete(), clear();
+      const returnVal = newSet.delete(2);
+      console.log(returnVal);
+      newSet.clear();
+      console.log(newSet);
+    </script>
+  </body>
+</html>

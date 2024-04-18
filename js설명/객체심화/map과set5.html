@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map과set5</title>
+  </head>
+  <body>
+    <script>
+      /* keys(), values(), entries() */
+
+      const fruits = new Set(["바나나", "포도", "복숭아"]);
+      console.log(fruits);
+      console.log(fruits.keys());
+      console.log(fruits.values());
+      console.log(fruits.entries());
+
+      for (item of fruits) {
+        console.log("item =>", item);
+      }
+
+      /* 미니 미션 */
+      const arr1 = [1, 2, 3];
+      const arr2 = [1, 2, 5];
+      function deduplicate(param1, param2) {
+        const arr3 = new Set();
+        for (item of param1) {
+          arr3.add(item);
+        }
+        for (item of param2) {
+          arr3.add(item);
+        }
+        console.log("중복 제거 : ", arr3);
+        const arr4 = new Set([...param1, ...param2]);
+        console.log("중복 제거 2 : ", arr4);
+      }
+      deduplicate(arr1, arr2);
+    </script>
+  </body>
+</html>
