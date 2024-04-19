@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터관리</title>
+  </head>
+  <body>
+    <script>
+      /* var : 재선언, 재할당 O
+         let : 재선언 X, 재할당 O
+         const : 재선언, 재할당 X
+      */
+
+      // 1) 기본자료형(데이터타입) : 깊은 복사
+      let num = 10;
+      let copyNum = num;
+      console.log(copyNum);
+      num = 20;
+      console.log(copyNum);
+
+      const str = "이00";
+      const copyStr = str;
+      console.log(copyStr);
+
+      /* 2) 참조자료형(객체) : 얕은 복사 
+          - 변수 공간에 데이터 할당이 아니라
+            데이터가 위치하는 메모리의 주소값을 할당
+      */
+      const obj = { name: "신짱구" };
+      obj.name = "김철수";
+      console.log(obj);
+    </script>
+  </body>
+</html>

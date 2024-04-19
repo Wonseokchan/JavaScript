@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장객체(array)</title>
+  </head>
+  <body>
+    <script>
+      /* 배열을 다루는 array 객체 */
+      const fruits = ["banana", "apple"];
+
+      //length: 배열 길이
+      console.log(fruits.length);
+
+      //push(): 값을 배열 맨 뒤에 추가
+      fruits.push("mellon");
+      console.log(fruits);
+
+      //unshift() : 값을 배열 맨 앞에 추가
+      fruits.unshift("peach");
+      console.log(fruits);
+
+      //pop(): 배열 맨 뒤에서 데이터 추출
+      fruits.pop();
+      console.log(fruits);
+
+      //shif() : 배열 맨 앞에서 데이터 추출
+      fruits.shift();
+      console.log(fruits);
+    </script>
+  </body>
+</html>

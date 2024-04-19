@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장객체</title>
+  </head>
+  <body>
+    <script>
+      /* 문제1. 특정문자열 존재여부 및 첫번째 인덱스 찾기
+         1) searchTerm 함수 생성
+         2) searchTerm 인수로 inputTerm 넘기기
+         3) 리턴값
+         3-1) str에 inputTerm의 글자가 있으면, 'inputTerm'가 첫 번째로 등장하는 인덱스는 ${index}
+         3-2) str에 inputTerm의 글자가 없으면, 'inputTerm'를 찾을 수 없습니다
+      */
+      const str = "I have an apple and a banana. My friend also has a banana.";
+      const inputTerm = "banana";
+      function searchTerm(param) {
+        if (str.indexOf(param)) {
+          console.log(
+            `'inputTerm'가 첫 번째로 등장하는 인덱스는 ${str.indexOf(param)}`
+          );
+        } else {
+          console.log("'inputTerm'을 찾을 수 없습니다");
+        }
+      }
+      searchTerm(inputTerm);
+
+      /* 문제2. 특정 문자열의 모든 인덱스 찾기
+         1) findAllIndex 함수 생성
+         2) findAllIndex 인수로 str2, "hello" 넘기기
+         3) st2에 "hello" 글자가 존재하는 모든 인덱스 찾아서 새로운 배열에 담아 리턴
+
+         ** 답: [0, 13]
+      */
+      const str2 = "hello world, hello universe!";
+      function findAllIndex(param1, param2) {
+        const arr = [];
+        let index = param1.indexOf(param2);
+
+        while (index != -1) {
+          arr.push(index);
+          index = param1.indexOf(param2, index + 1);
+        }
+        console.log(arr);
+      }
+      findAllIndex(str2, "hello");
+
+      /* 문제3. 핸드폰번호의 끝 글자 4글자를 마스킹 처리하기
+         1) maskPhoneNumber 함수 생성
+         2) maskPhoneNumber 인수로 inputPhoneNum 넘기기
+         3) inputPhoneNum가 11글자가 아니면 "핸드폰번호를 제대로 입력해주세요" 리턴
+         4) inputPhoneNum가 11글자이면 끝에 4글자를 ****로 출력하기
+
+         답: 0101234****
+      */
+      const inputPhoneNum = "01012345678";
+      function maskPhoneNumber(param) {
+        if (param.length != 11) {
+          console.log("핸드폰번호를 제대로 입력하세요");
+        } else if (param.length == 11) {
+          console.log(param.replace(param.slice(-4), "****"));
+        }
+      }
+      maskPhoneNumber(inputPhoneNum);
+    </script>
+  </body>
+</html>
