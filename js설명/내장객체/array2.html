@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array2</title>
+  </head>
+  <body>
+    <script>
+      /* 찾기관련 메서드 */
+      const arr = [10, 20, 30, 40];
+
+      /* foreEach : 배열안의 요소들을 순회 > 콜백함수 호출> 각 요소 출력 */
+      arr.forEach((element) => {
+        console.log(element);
+      });
+
+      // find(): 주어진 판별 함수를 만족하는 "첫번째 값" 반환
+      arr.find(function (ele) {
+        return ele > 20;
+      });
+      console.log(arr);
+
+      //{}있으면 return이 있어야 반환값 존
+      //{}없이 한줄로 적는 경우 : return 반환값 존재
+      const result2 = arr.find((ele) => ele > 20);
+      console.log(result2);
+      const result3 = arr.find((ele) => {
+        return ele > 20;
+      });
+      console.log(result3);
+
+      /* findIndex() : find와 동일하지만, 값이 아닌 인덱스를 반환 */
+      const resultIndex = arr.findIndex((ele) => {
+        return ele > 20;
+      });
+      console.log("rsIndex:", resultIndex);
+
+      const resultIndex2 = arr.findIndex((ele) => ele > 20);
+      console.log(resultIndex2);
+
+      /* includes() : 배열에 특정값이 포함되어있는지 여부(true | false) */
+      console.log(arr.join());
+    </script>
+  </body>
+</html>

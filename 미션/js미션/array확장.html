@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array확장</title>
+  </head>
+  <body>
+    <script>
+      /* 문제1. 주어진 배열에서 짝수만 골라내어 2배한 후 결과들의 총합 
+         1) sumNumbers 함수 생성
+         2) sumNumbers 인수로 numbers 넘기기
+         3) numbers 배열 안의 짝수만 골라내어 각 2배한 수들의 총합
+         결과: 60
+      */
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      function sumNumbers(arr) {
+        let sum = 0;
+        for (item of arr) {
+          if (item % 2 == 0) {
+            sum += item * 2;
+          }
+        }
+        console.log(sum);
+      }
+      sumNumbers(numbers);
+      //filter 함수실행 > 요소1개씩 리턴 > 배열로반호나
+      const result1 = numbers
+        .filter((ele) => {
+          if (ele % 2 == 0) {
+            return ele;
+          }
+        })
+        .reduce((total, current, index) => {
+          return total + current * 2;
+        }, 0);
+      console.log("myV", result1);
+
+      const sumNumbers2 = (param) => {
+        const evenArr = param.filter((ele) => ele % 2 == 0);
+        const doubleArr = evenArr.map((ele) => ele * 2);
+        const total = doubleArr.reduce((arr, curr) => arr + curr);
+        console.log("쌤V", total);
+      };
+      sumNumbers2(numbers);
+      /* 문제2. 배열들의 평균 값 구하기 
+         1) subArrayAverages 함수 생성
+         2) subArrayAverages 인수로 numbers 넘기기
+         3) numbers 배열 안의 배열들의 각 평균값을 담고 있는 배열 리턴
+
+         결과: [5, 4, 9]
+      */
+      const numberArray = [
+        [1, 3, 6, 10],
+        [2, 4, 6],
+        [7, 8, 9, 10, 11],
+      ];
+      const result2 = numberArray.map((num) => {
+        let sum = 0;
+        for (item of num) {
+          sum += item;
+        }
+        avg = sum / num.length;
+        return avg;
+      });
+      console.log(result2);
+
+      const subArrayAverages = (param) => {
+        const result = param.map((ele) => {
+          const total = ele.reduce((arr, curr) => arr + curr);
+
+          return total / ele.length;
+        });
+        console.log("쌤V", result);
+      };
+      subArrayAverages(numberArray);
+    </script>
+  </body>
+</html>
