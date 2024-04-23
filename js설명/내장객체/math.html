@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>math</title>
+  </head>
+  <body>
+    <script>
+      /* Math객체 : 객체 인스턴스 만들지 않고 사용 가능 */
+      const floatNum = 10.3;
+      console.log(floatNum);
+
+      //floor : 내림 --> 같거나 작은 정수 중 큰거 반환
+      console.log(Math.floor(floatNum)); // 10
+
+      //ceil : 올림 --> 같거나 작은 정수 중 작은 것 반환
+      console.log(Math.ceil(floatNum)); //11
+
+      //round : 반올림
+      console.log(Math.round(floatNum)); //10
+
+      //toFixed(n) : 소수점 자릿수 지정
+      const pi = Math.PI;
+      console.log(pi.toFixed(3));
+
+      //난수
+      const radomNum = Math.floor(Math.random() * 100);
+      console.log(radomNum);
+    </script>
+  </body>
+</html>

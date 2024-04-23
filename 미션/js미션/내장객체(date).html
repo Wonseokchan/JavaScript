@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장객체(date)</title>
+  </head>
+  <body>
+    <script>
+      /*문제1. 오늘 날짜에서 7일 후의 날짜 함수
+         1) getFutureDate 함수 생성
+         2) getFutureDate의 리턴값: 오늘 날짜에서 7일 후
+
+         ** 결과: 2024. 4. 26. 오전 10:14:47
+       */
+      const date = new Date();
+      const day = date.getDate();
+      function getFutureDate(param) {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = param + 7;
+
+        console.log(
+          `${year}. ${month}. ${day} ${date.toLocaleTimeString("ko-KR")}`
+        );
+      }
+      getFutureDate(day);
+      /* 문제2. 현재 날짜의 요일 표시
+          1) getCurrentDayOfWeek 함수 생성
+          2) getCurrentDayOfWeek 리턴값: 금요일
+
+          ** 결과: 금요일
+       */
+      function getCurrentDayOfWeek() {
+        const dateObj = new Date();
+        const day = dateObj.getDay();
+        switch (day) {
+          case 0:
+            console.log("일요일");
+            break;
+          case 1:
+            console.log("월요일");
+            break;
+          case 2:
+            console.log("화요일");
+            break;
+          case 3:
+            console.log("수요일");
+            break;
+          case 4:
+            console.log("목요일");
+            break;
+          case 5:
+            console.log("금요일");
+            break;
+          case 6:
+            console.log("토요일");
+            break;
+        }
+      }
+      getCurrentDayOfWeek();
+      /* 문제3. 2024년의 각 달의 일 수를 표시 함수
+          1) getDaysInMonth 함수 생성
+          2) getDaysInMonth 인수로 yearToCheck 넘기기
+          3) getDaysInMonth 리턴값: yearToCheck의 각 달의 일수
+
+          ** 결과: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+       */
+      const yearToCheck = 2024;
+      function getDaysInMonth(param) {
+        const dayArr = [];
+        for (let i = 1; i <= 12; i++) {
+          const finalDate = new Date(param, i, 0);
+          dayArr.push(finalDate.getDate());
+        }
+        console.log(dayArr);
+      }
+      getDaysInMonth(yearToCheck);
+    </script>
+  </body>
+</html>

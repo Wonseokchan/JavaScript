@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 문제1. 사용자에게 입력받은 반지름을 통해 원의 넓이, 둘레 구하기
+         1) circleInfo 함수 생성
+         2) circleInfo 인수로 radius 넘기기
+         - radius를 활용해서 원의 넓이, 둘레 구하기
+         3) circleInfo 리턴값: {area: 넓이값, circum: 둘레값}
+         단, 넓이, 둘레 모두 소수점 3자리까지만 출력
+       //Math.PI
+      */
+      const radius = 5;
+      const circleInfo = (param) => {
+        const area = param * param * Math.PI;
+        const circum = 2 * param * Math.PI;
+
+        return { area: area.toFixed(3), circum: circum.toFixed(3) };
+      };
+      const result1 = circleInfo(radius);
+      console.log(result1);
+
+      /* 문제2. 주어진 문자열 배열에서 무작위로 하나의 단어를 선택하는 함수
+         1) getRandomWord 함수 생성
+         2) getRandomWord 인수로 wordList 넘기기
+         3) 무작위로 랜덤한 하나의 단어 출력하기(힌트. 랜덤메서드 통해 랜덤한 인덱스 출력)
+         4) getRandomWord 리턴값:  무작위로 출력된 단어
+      */
+      let wordList = ["apple", "banana", "orange", "grape", "kiwi"];
+      function getRandomWord(param) {
+        const rand = Math.floor(Math.random() * param.length);
+        console.log(param[rand]);
+      }
+      getRandomWord(wordList);
+
+      /* 문제3. 무작위로 생성된 10개의 숫자로 이루어진 배열에서 짝수, 홀수 갯수 세는 함수 작성하기
+         1. randomList 함수 생성
+         1-1. randomList 함수 통해 랜덤한 수로 10개로 구성된 배열 리턴
+         2. countEvenOdd 함수 생성
+         2-1. randomList 함수의 리턴값을 인수로 받기
+         2-2. 인수로 받은 배열에서 짝수의 갯수와 홀수의 갯수 리턴
+         2-3. countEvenOdd 리턴값: { list: 배열, even: 짝수갯수, odd: 홀수갯수 }
+      */
+      function randomList() {
+        const randArr = [];
+        for (let i = 0; i < 10; i++) {
+          const rand = Math.floor(Math.random() * 100 + 1);
+          randArr.push(rand);
+        }
+        return randArr;
+      }
+      randomList();
+
+      function countEvenOdd(param) {
+        let even = 0;
+        let odd = 0;
+
+        for (let i = 0; i < param.length; i++) {
+          if (param[i] % 2 == 0) {
+            even++;
+          } else {
+            odd++;
+          }
+        }
+        return { list: param, even: even, odd: odd };
+      }
+      const result2 = countEvenOdd(randomList());
+      console.log(result2);
+
+      const randSet = new Set();
+      while (randSet.size < 10) {
+        const rand = Math.floor(Math.random() * 100 + 1);
+        randSet.add(rand);
+      }
+      let even = 0;
+      let odd = 0;
+      randSet.forEach((element) => {
+        if (element % 2 == 0) {
+          even++;
+        } else odd++;
+      });
+      console.log(randSet);
+      console.log("짝수:", even);
+      console.log("홀수:", odd);
+    </script>
+  </body>
+</html>

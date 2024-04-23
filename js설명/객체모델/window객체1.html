@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체1</title>
+  </head>
+  <body>
+    <div style="height: 2000px">
+      <button
+        style="position: relative; top: 300px"
+        onclick="browserObjModel()"
+      >
+        버튼클릭
+      </button>
+      <button onclick="popup()">팝업열기</button>
+    </div>
+    <script>
+      /* 브라우저객체모델 : 웹브라우저에서 제공하는 객체
+        window객체 : 웹 브라우저가 열릴때마다 생성됨 / 최상위 객체
+      */
+      function browserObjModel() {
+        console.log("웹브라우저너비:", window.innerWidth);
+        console.log("웹브라우저높이:", window.innerHeight);
+        console.log("웹브라우저스크롤가로위치:", window.scrollX);
+        console.log("웹브라우저스크롤세로위치:", window.scrollY);
+      }
+
+      //window.open(경로, 창이름, 창옵션) : 새로운 창 여는데 사용
+      function popup() {
+        window.open(
+          "팝업.html",
+          "팝업",
+          "width=200 height=200 left=400px top=200px"
+        );
+      }
+    </script>
+  </body>
+</html>

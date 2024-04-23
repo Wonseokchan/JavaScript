@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date객체</title>
+  </head>
+  <body>
+    <script>
+      /* 날짜객체(그리니치평균시=세계표준시) */
+      const dateObj = new Date();
+      console.log(dateObj);
+
+      /* 날짜객체 내장함수 */
+      //년
+      const year = dateObj.getFullYear();
+      console.log(year);
+
+      //월(0부터 1월 ==> +1을 해줘야함)
+      const month = dateObj.getMonth() + 1;
+      console.log(month);
+
+      //일
+      const date = dateObj.getDate();
+      console.log(date);
+
+      //요일(0(일요일)~6(토요일))
+      const day = dateObj.getDay();
+      switch (day) {
+        case 0:
+          console.log("일요일");
+          break;
+        case 1:
+          console.log("월요일");
+          break;
+        case 2:
+          console.log("화요일");
+          break;
+        case 3:
+          console.log("수요일");
+          break;
+        case 4:
+          console.log("목요일");
+          break;
+        case 5:
+          console.log("금요일");
+          break;
+        case 6:
+          console.log("토요일");
+          break;
+      }
+
+      /* 특정날짜 설정한 date 객체 */
+      const birth = new Date("2024", "0", "1");
+      console.log(birth);
+      //"yyyy-mm-dd"로 셋팅할 때는 월을 그대로 전달
+      const birth2 = new Date("2024-01-01");
+      console.log(birth2);
+
+      const finalDate = new Date(2024, 0, 0);
+      console.log(finalDate);
+
+      /* 시간까지 셋팅 */
+      //년, 월, 일, 시, 분, 초
+      const timeDate = new Date(2024, 0, 1, 18, 30, 50);
+      console.log(timeDate);
+      const timeDate2 = new Date("2024-01-01T18:30:50");
+      console.log(timeDate2);
+
+      //2024년 0월 0일 18시 30분
+      const newDate = new Date();
+      const newYear = newDate.getFullYear();
+      const newMonth = newDate.getMonth() + 1;
+      const newDay = newDate.getDate();
+      const customDate = `${newYear}년 ${newMonth}월 ${newDay}일`;
+
+      console.log(customDate);
+    </script>
+  </body>
+</html>

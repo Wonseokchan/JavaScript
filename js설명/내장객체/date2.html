@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date2</title>
+  </head>
+  <body>
+    <script>
+      /* 날짜객체 시간메서드 */
+      const newDate = new Date();
+      //시
+      const hour = newDate.getHours();
+      console.log(hour);
+
+      //분
+      const minute = newDate.getMinutes();
+      console.log(minute);
+
+      //초
+      const second = newDate.getSeconds();
+      console.log(second);
+
+      //getTime() : 1970년 1월 1일 이후의 시간을 밀리초 표시
+      const getTime = newDate.getTime();
+      console.log(getTime);
+
+      //협정세계시(UTC)
+      //한국은 UTC+9 : UTC시간에서 9시간 더한것이 우리나라 시간
+      const date = new Date(); //로컬시간(운영체제)기준 객체
+      console.log(date);
+      const utcDate = date.toUTCString();
+      console.log(utcDate); //utc시간을 기준으로 할때는 +9시간을 해줘야함
+
+      //사용자 시스템 설정에 따라 로컬 언어시간형식이 다름
+      console.log(date.toLocaleDateString());
+    </script>
+  </body>
+</html>
