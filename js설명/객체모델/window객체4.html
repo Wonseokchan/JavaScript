@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체4</title>
+  </head>
+  <body>
+    <button onclick="goBack()">이전페이지이동</button>
+    <button onclick="goReload()">페이지재로드</button>
+    <button onclick="goMove()">다른url이동</button>
+    <script>
+      /* histroy객체 : 웹브라우저[뒤로],[앞으로] 버튼 클릭
+                         또는 주소 표시줄에 입력해서 돌아다닌 경우
+                         array 배열에 주소를 저장해둠
+        
+        */
+      function goBack() {
+        window.history.back();
+      }
+      console.log(window.history);
+      /* location객체 : 현재 문서에 대한 url 주소에 대한 정보를 갖고 있음*/
+      console.log(window.location.href);
+      console.log(window.location.hostname); //호스트네임출력
+      console.log(window.location.pathname); //경로출력
+
+      /* 브라우저가 시작될 때 실행되는 메서드 */
+      window.onload = () => {
+        //alert("시작");
+      };
+
+      function goReload() {
+        window.location.reload();
+      }
+
+      function goMove() {
+        window.location.href = "https://www.naver.com";
+      }
+    </script>
+  </body>
+</html>

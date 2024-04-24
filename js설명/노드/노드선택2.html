@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드선택2</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child1" class="child">첫번째자식요소</div>
+      <div id="child2" class="child">두번째자식요소</div>
+      <div id="child3" class="child">세번째자식요소</div>
+    </div>
+    <div id="container">
+      <p id="text1">문장1</p>
+      <p id="text2">문장2</p>
+      <p id="text3">문장3</p>
+      <div>
+        <div id="children1" class="children">자식1</div>
+        <div id="children2" class="children">자식2</div>
+      </div>
+    </div>
+    <!-- 1. id관련 메서드 활용해서 문장2 콘솔에 출력
+         2. class관련 메서드 활용해서 자식1, 2를 담고 자식2만 콘솔에 출력
+    -->
+    <script>
+      /* 메서드로 노드 선택 */
+      //getElementById(id) : Id값과 일치하는 요소노드 1개 선택
+      console.log(document.getElementById("child1"));
+      //getElementsByClassName(class) : class값과 일치하는 모든 요소 선택
+      console.log(document.getElementsByClassName("child"));
+      //getElementsByTagName(tag) : tag명과 일치하는 요소 선택
+      console.log(document.getElementsByTagName("div"));
+
+      /* HTMLCollection, NodeList -> 유사배열
+         : 인덱스로 요소마다 접근이 가능
+       */
+      const classEl = document.getElementsByClassName("child");
+      console.log(classEl[0]);
+      console.log(classEl[1]);
+      console.log(classEl[2]);
+
+      const divEl = document.getElementsByTagName("div");
+      console.log(divEl[0]);
+      console.log(divEl[1]);
+      console.log(divEl[2]);
+      console.log(divEl[3]);
+
+      const q1 = document.getElementById("text2");
+      console.log(q1);
+
+      const q2 = document.getElementsByClassName("children");
+      console.log(q2[1]);
+    </script>
+  </body>
+</html>

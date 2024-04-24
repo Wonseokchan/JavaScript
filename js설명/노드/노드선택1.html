@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드선택1</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child1">첫번째자식요소</div>
+      <div id="child2">두번째자식요소</div>
+      <div id="child3">세번째자식요소</div>
+    </div>
+    <script>
+      /* dom의 node 선택하기 
+        dom 객체는 트리를 탐색하면서 원하는 노드를 선택할 수 있게 속성을 제공해줌
+      */
+      //속성으로 노드 선택하기
+
+      //기준점
+      const parent = document.getElementById("parent");
+      console.log(parent);
+
+      //parentNode() : 부모 노드 반환
+      console.log("기준점의 부모노드:", parent.parentNode);
+
+      //childNodes : 모든 자식 노드 반환
+      console.log("모든 자식 노드:", parent.childNodes);
+      //firstChild : 첫번째 자식 노드 반환
+      console.log("첫번째 자식 노드:", parent.firstChild);
+      //lastChild : 마지막 자식 노드 반환
+      console.log("마지막 자식 노드:", parent.lastChild);
+
+      /* */
+      //parentElement : 부모 요소 반환
+      console.log("기준점의 부모요소:", parent.parentElement);
+      //children : 자식 요소 반환
+      console.log("기준점의 자식요소:", parent.children);
+      //firstElementChild: 첫번째 자식 요소 반환
+      console.log("기준점의 첫번째 자식 요소:", parent.firstElementChild);
+      //lastElementChild: 마지막 자식 요소 반환
+      console.log("기준점의 마지막 자식 요소:", parent.lastElementChild);
+    </script>
+  </body>
+</html>

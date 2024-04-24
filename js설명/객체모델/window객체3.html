@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체3</title>
+    <style>
+      .up {
+        position: relative;
+        top: 1500px;
+      }
+      .up2 {
+        position: relative;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 2000px">
+      <div class="up" onclick="scrollUp()">scrollTo</div>
+      <div class="up2" onclick="scrollRelative()">scrollBy1</div>
+      <div class="up">scrollBy2</div>
+    </div>
+    <script>
+      /* 웹브라우저 스크롤 이동 */
+      //window.scrollTo(x좌표, y좌표) : 좌표위치로 이동
+      const scrollUp = () => {
+        //window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      const scrollRelative = () => {
+        window.scrollBy(0, 100);
+      };
+    </script>
+  </body>
+</html>

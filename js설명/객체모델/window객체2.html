@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체2</title>
+  </head>
+  <body>
+    <div style="height: 2000px">
+      <button onclick="popup()">팝업열기</button>
+    </div>
+    <script>
+      /* screen객체 : 웹 사이트에 접속하는 사용자들의 화면크기 다 다름
+                        사용자의 화면의 크기의 정보가 필요할 때 사용하는 객체
+        */
+
+      function popup() {
+        const popWidth = 600;
+        const popHeight = 500;
+        const left = (screen.availWidth - popWidth) / 2;
+        const top = (screen.availHeight - popHeight) / 2;
+        window.open(
+          "팝업.html",
+          "팝업",
+          `width=${popWidth} height=${popHeight} left=${left} top=${top}`
+        );
+      }
+      /* .open 사용해서 팝업을 구현하기보다는 div태그로 팝업을 웹 화면 안에서 그린 다음에 숨기는 여부에 따라서 보임*/
+    </script>
+  </body>
+</html>

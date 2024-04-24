@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window객체</title>
+    <style>
+      #container {
+        display: flex;
+        flex-direction: column;
+        height: 2000px;
+        width: 4000px;
+        background-color: aliceblue;
+        justify-content: space-between;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+      }
+      .center {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img src="/images/down-arrow.png" onclick="goMove(0,2000)" />
+
+      <div class="center">
+        <img
+          style="transform: rotate(270deg)"
+          src="/images/down-arrow.png"
+          onclick="goMove(4000,0)"
+        />
+        <img
+          style="transform: rotate(90deg)"
+          src="/images/down-arrow.png"
+          onclick="goMove(0,0)"
+        />
+      </div>
+
+      <img
+        style="transform: rotate(180deg)"
+        src="/images/down-arrow.png"
+        onclick="goMove(0,0)"
+      />
+    </div>
+    <script>
+      //scrollHeight, scrollWidth : 요소의 전체 높이, 너비를 반환
+      //pageYOffset : 문서가 위에서부터 수직으로 스크롤된 픽셀수를 반호나
+      /*function toBottom() {
+        //window.scrollTo({ top: 2000, behavior: "smooth" });
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+      function toTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      function toLeft() {
+        //window.scrollTo({ left: 0, behavior: "smooth" });
+        window.scrollTo(0, window.pageYOffset);
+      }
+      function toRight() {
+        //window.scrollTo({ left: 4000, behavior: "smooth" });
+        window.scrollTo(document.body.scrollWidth, window.pageYOffset);
+      }*/
+
+      const goMove = (x, y) => {
+        window.scrollTo(x, y);
+      };
+    </script>
+  </body>
+</html>
