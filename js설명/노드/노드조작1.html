@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드조작1</title>
+  </head>
+  <body>
+    <div id="desc">
+      <p id="title" onclick="goChange()">프로필</p>
+      <p class="user">이름: 신짱구</p>
+      <p class="user" onclick="change()">주소: 떡잎마을</p>
+      <p style="display: none">연락처: 없음</p>
+    </div>
+    <script>
+      /* 콘텐츠 조작 프로퍼티 */
+      //innerText : 웹 브라우저에 표시되는 텍스트에만 접근
+      console.log(document.getElementById("desc").innerText);
+      console.log(document.querySelector("#desc").innerText);
+
+      //textContent: 모든 텍스트에 접근
+      console.log(document.getElementById("desc").textContent);
+      console.log(document.querySelector("#desc").textContent);
+
+      //innerHTML: html 태그를 포함한 텍스트에만 접근
+      console.log(document.getElementById("desc").innerHTML);
+      console.log(document.querySelector("#desc").innerHTML);
+
+      function goChange() {
+        const title = document.querySelector("#title");
+        title.innerText = "Profile";
+      }
+
+      function change() {
+        const user = document.querySelector("#desc :nth-of-type(3)");
+        user.innerHTML = "<a href='#'>주소지바뀜</a>";
+      }
+    </script>
+  </body>
+</html>

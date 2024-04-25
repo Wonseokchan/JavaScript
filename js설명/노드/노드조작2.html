@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드조작2</title>
+    <style>
+      .bg-pink {
+        background-color: pink;
+      }
+      .bg-blue {
+        background-color: blue;
+      }
+      .border {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="desc" onclick="goBorder()">
+      <p id="title" class="test test2">프로필</p>
+      <p class="user">이름: 신짱구</p>
+      <p class="user">주소: 떡잎마을</p>
+      <p style="display: none">연락처: 없음</p>
+    </div>
+    <script>
+      /* 스타일 조작 프로퍼티: 요소의 스타일에 접근해서 조작 가능 */
+
+      //css 속성에 접근
+      const titleEl = document.querySelector("#title");
+      titleEl.style.color = "red";
+      //-속성: background-color, font-size => 카멜표기법으로 작성
+      titleEl.style.backgroundColor = "yellow";
+      titleEl.style.fontSize = "20px";
+
+      //classList : 클래스 스타일을 모아놓음
+      const pEl = document.querySelector("#desc p");
+      console.log(pEl);
+
+      /* classList를 통해서 클래스명 추가, 삭제할 경우
+        입력된 값을 제외하고는 건들지 않음
+      */
+
+      //요소.classList.add("클래스명") : class가 추가됨
+      //add를 사용하려면 class를 활용한 스타일을 미리 정의해둬야함
+      pEl.classList.add("bg-pink");
+
+      //요소.classList.remove("클래스명") : class가 삭제됨
+      pEl.classList.remove("bg-pink");
+      const pElList = document.querySelectorAll("p");
+      console.log(pElList);
+
+      const arrEl = document.querySelectorAll(".user")[1];
+      //arrEl.classList.add("bg-blue");
+
+      /* 요소.classList.contains(클래스명)
+      : 특정 클래스 스타일이 있는지 찾아줌(true | false)
+      */
+      const addrEle = document.querySelectorAll("p")[2];
+      console.log("addrEle", addrEle);
+
+      //console.log(addrEle.classList.contains("bg-blue"));
+      const isContain = addrEle.classList.contains("bg-blue");
+      if (isContain) {
+        console.log("이미 있음");
+      } else {
+        console.log("없어서 추가함");
+        addrEle.classList.add("bg-blue");
+      }
+
+      /* 요소.classList.toggle(클래스명)
+      : 반복적으로 스타일 적용, 적용하지 않을 때 사용(ex. 스위치)
+      */
+      function goBorder() {
+        const mainEle = document.querySelector("#desc");
+        const isContain = mainEle.classList.contains("border");
+        // if (!isContain) {
+        //   mainEle.classList.add("border");
+        // } else {
+        //   mainEle.classList.remove("border");
+        // }
+        const toggleVal = mainEle.classList.toggle("border");
+        console.log(toggleVal);
+        if (toggleVal) {
+          const name = document.querySelector("#desc :nth-of-type(2)");
+          name.innerText = "이름 : 김철수";
+        }
+      }
+    </script>
+  </body>
+</html>

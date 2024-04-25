@@ -11,6 +11,18 @@
       <div id="child2" class="child">두번째자식요소</div>
       <div id="child3" class="child">세번째자식요소</div>
     </div>
+
+    <div id="profile">
+      <div id="info">
+        <p>이름</p>
+        <p>주소</p>
+        <p>연락처</p>
+      </div>
+      <div id="sub">
+        <p>취미</p>
+        <p>특기</p>
+      </div>
+    </div>
     <script>
       /* css선택자 사용하기 
          dom객체 메서드의 매개변수로 css 선택자를 넘겨줌
@@ -27,6 +39,15 @@
 
       console.log(document.querySelectorAll("div"));
       console.log(document.querySelector("#child2"));
+
+      console.log(document.querySelector("#parent :nth-of-type(2)"));
+
+      //1. sub 아이디에 접근해서 요소출력
+      //2. p태그 접근해서 모든 요소 출력
+      //3. 특기출력을 부모 입장에서 선택해서 출력
+      console.log(document.querySelector("#sub"));
+      console.log(document.querySelectorAll("p"));
+      console.log(document.querySelector("#sub :nth-of-type(2)"));
     </script>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드접근</title>
+    <style>
+      #main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .imgOption {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <header>
+        <button>다크모드</button>
+      </header>
+      <main>
+        <img src="/images/main1.jpg" />
+        <div class="imgOption">
+          <button>이미지변경</button>
+          <button>이미지멈춤</button>
+        </div>
+        <div input="text-align" style="border: 1px solid">
+          지상의 아이들이 자유롭게 그려내는 낙서를 에너지로 삼아 하늘에 떠있는
+          왕국, 그 이름은 낙서왕국. 그러나 시대가 흐르면서 지상의 사람들이
+          낙서를 그리는 일이 줄어들자 낙서왕국은 붕괴의 위기를 맞게 된다. 이에
+          낙서왕국군에서는 아이들을 한 데 모아 강제로 낙서를 그리게 하여 왕국을
+          존속시키는 '우키우키 카키카키' 대작전을 개시한다. 그렇게 왕국 바로
+          아래에 있던 카스카베를 시작으로 지상의 아이들을 잡아가기 시작한다.
+          그런 혼란 속에서 낙서왕국의 공주는 지구상에서 단 한 사람, 그려낸 것은
+          무엇이든 실체화시키는 낙서왕국의 보물 '미라클 크레용'으로 세계를 구할
+          용사로 노하라 신노스케를 택하고, 신짱은 공주의 명령을 받든 낙서왕국의
+          궁정화가로부터 미라클 크레용을 받게 되는데... 과연 신짱은 미라클
+          크레용으로 세계를 구할 수 있을 것인가?
+        </div>
+      </main>
+      <footer>
+        <button onclick="scrollUp()">스크롤 위로</button>
+      </footer>
+    </div>
+    <script>
+      const scrollUp = () => {
+        //window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    </script>
+  </body>
+</html>
