@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드추가삭제</title>
+  </head>
+  <body>
+    <div id="main"></div>
+    <div id="info"></div>
+    <script>
+      //createElement("태그명") : 요소노드생성
+      const imgEl = document.createElement("img");
+      const mainEl = document.getElementById("main");
+
+      //기준노드.appendChild(자식노드) : 기준노드에 자식노드 연결
+      mainEl.appendChild(imgEl);
+      console.log(mainEl);
+
+      //createAttribue(""): 속성노드생성
+      const scrAttr = document.createAttribute("src");
+      scrAttr.value = "/images/main1.jpg";
+      console.log(scrAttr);
+
+      //setAttributeNode("속성노드") : 요소에 속성노드 추가
+      imgEl.setAttributeNode(scrAttr);
+
+      //info에 a태그 생성해서 붙이기 > href속성 생성 및 네이버연결
+      // > a태그에 생성한 속성 노드 추가
+      const infoEl = document.getElementById("info");
+      const aEl = document.createElement("a");
+      aEl.innerText = "네이버";
+      infoEl.appendChild(aEl);
+
+      const hrefAttr = document.createAttribute("href");
+      hrefAttr.value = "https://www.naver.com";
+      aEl.setAttributeNode(hrefAttr);
+      console.log(infoEl);
+
+      //createTextNode(): 텍스트노드생성
+      const textEl = document.createTextNode("데빌구");
+      console.log(textEl);
+      infoEl.appendChild(textEl);
+
+      //부모노드.removechild(자식노드) : 노드삭제
+      mainEl.removeChild(imgEl);
+
+      const mainEle = document.getElementById("main");
+      const imgEle = document.createElement("img");
+      imgEle.src = "https://www.naver.com";
+      mainEle.appendChild(imgEle);
+    </script>
+  </body>
+</html>

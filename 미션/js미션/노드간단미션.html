@@ -158,16 +158,14 @@
       );
     }
     function showInfo() {
-      const ele = document.querySelector(".grid-child-posts");
-      const ele2 = document.querySelector(".grid-child-followers");
+      const ele = document.querySelector(".grid-container");
       ele.classList.remove("hide");
-      ele2.classList.remove("hide");
+      // ele.style.display = "";
     }
     function hiddenInfo() {
-      const ele = document.querySelector(".grid-child-posts");
-      const ele2 = document.querySelector(".grid-child-followers");
+      const ele = document.querySelector(".grid-container");
       ele.classList.add("hide");
-      ele2.classList.add("hide");
+      // ele.style.display = "none";
     }
   </script>
 </html>

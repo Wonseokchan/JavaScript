@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bg-pink {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="desc">
+      <div id="info">
+        <p>문장1</p>
+        <p><span onclick="titleC()">문장2</span></p>
+      </div>
+      <a class="link">링크</a>
+    </div>
+    <script>
+      function titleC() {
+        const ele = document.querySelector("span");
+        ele.innerText = "문장3";
+      }
+      const ele = document.querySelector(".link");
+      //   ele.setAttribute("href", "https://www.daum.net");
+      ele.href = "https://www.daum.net";
+
+      const ele2 = document.querySelectorAll("p");
+      for (item of ele2) {
+        item.classList.add("bg-pink");
+      }
+    </script>
+  </body>
+</html>

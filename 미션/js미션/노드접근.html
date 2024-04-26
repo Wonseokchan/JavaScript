@@ -6,29 +6,76 @@
     <title>노드접근</title>
     <style>
       #main {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: 50px auto 100px;
+      }
+      header {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+      .container {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      footer {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: flex-end;
       }
       .imgOption {
+        margin: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+      }
+      .mainImg {
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+      }
+      .color {
+        background-color: black;
+        color: white;
+      }
+      .hide {
+        display: none;
+      }
+
+      .imgPosition {
+        width: 300px;
+        height: 400px;
+        display: none;
+        position: fixed;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
   <body>
     <div id="main">
       <header>
-        <button>다크모드</button>
+        <button class="mode" onclick="modeChange()">다크모드</button>
       </header>
-      <main>
-        <img src="/images/main1.jpg" />
+      <main id="container">
+        <img class="mainImg" src="/images/main1.jpg" />
         <div class="imgOption">
-          <button>이미지변경</button>
-          <button>이미지멈춤</button>
+          <button onclick="imgChange()">이미지변경</button>
+          <button onclick="imgStop()">이미지멈춤</button>
         </div>
-        <div input="text-align" style="border: 1px solid">
+        <div input="text-align" style="border: 1px solid; padding: 10px">
           지상의 아이들이 자유롭게 그려내는 낙서를 에너지로 삼아 하늘에 떠있는
           왕국, 그 이름은 낙서왕국. 그러나 시대가 흐르면서 지상의 사람들이
           낙서를 그리는 일이 줄어들자 낙서왕국은 붕괴의 위기를 맞게 된다. 이에
@@ -41,14 +88,69 @@
           궁정화가로부터 미라클 크레용을 받게 되는데... 과연 신짱은 미라클
           크레용으로 세계를 구할 수 있을 것인가?
         </div>
+
+        <div>
+          <img
+            src="/images/jg-poster.PNG"
+            class="imgPosition"
+            onclick="hideImg()"
+          />
+        </div>
       </main>
       <footer>
-        <button onclick="scrollUp()">스크롤 위로</button>
+        <button style="margin: 10px" onclick="scrollUp()">스크롤 위로</button>
       </footer>
     </div>
     <script>
+      const mainEl = document.querySelector("#main");
+      const imgEl = document.querySelector("img");
+      const popupEl = document.querySelector(".imgPosition");
+      const images = [
+        "/images/main2.jpg",
+        "/images/main3.jpg",
+        "/images/main4.jpg",
+        "/images/main5.jpg",
+        "/images/main6.jpg",
+        "/images/main1.jpg",
+      ];
+      let index = 0;
+      let timer = null;
+
+      window.onload = () => {
+        popupEl.style.display = "flex";
+      };
+
+      function hideImg() {
+        popupEl.style.display = "none";
+      }
+
+      function modeChange() {
+        const toggleVal = mainEl.classList.toggle("color");
+        if (toggleVal) {
+          const btEl = document.querySelector(".mode");
+          btEl.innerText = "라이트모드";
+        }
+      }
+
+      let count = 1;
+      function imgChange() {
+        timer = setInterval(() => {
+          index = (index + 1) % images.length;
+          imgEl.src = images[index];
+
+          // imgEL.src = `/images/main${count}.jpg`;
+          // count++;
+          // if (count > 6) {
+          //   count = 1;
+          // }
+        }, 2000);
+      }
+
+      function imgStop() {
+        clearInterval(timer);
+      }
+
       const scrollUp = () => {
-        //window.scrollTo(0, 0);
         window.scrollTo({ top: 0, behavior: "smooth" });
       };
     </script>
