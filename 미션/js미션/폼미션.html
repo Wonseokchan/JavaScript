@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/style/form.css" />
     <style>
       .asignbt {
+        margin-left: 20px;
         padding: 0.5em 1em;
         background: #10b981;
         color: #fff;
@@ -14,6 +15,19 @@
         border-radius: 5px;
         font-weight: 500;
         cursor: pointer;
+      }
+      .pwbt {
+        padding: 0.5em 1.5em;
+        background: #3b4ce2;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .popup {
+        display: none;
+        color: coral;
       }
     </style>
   </head>
@@ -33,12 +47,18 @@
           <div class="nice-form-group">
             <label>비밀번호</label>
             <input type="password" placeholder="Your Pw" />
+            <p class="popup">비밀번호 입력하세요</p>
           </div>
 
           <div class="nice-form-group">
             <label>비밀번호 확인</label>
-            <input type="password" placeholder="Your Pw Confirm" />
-            <button>비밀번호확인</button>
+            <input
+              type="password"
+              placeholder="Your Pw Confirm"
+              style="width: 70%"
+            />
+            <button class="pwbt">비밀번호확인</button>
+            <p class="popup">확인할 비밀번호를 입력하세요</p>
           </div>
 
           <div class="nice-form-group">
@@ -67,7 +87,7 @@
             </select>
             <br />
             <div class="nice-form-group">
-              <label>File upload</label>
+              <label>프로필 사진 등록하기</label>
               <input type="file" />
             </div>
             <br />
