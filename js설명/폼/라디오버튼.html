@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>라디오버튼</title>
+  </head>
+  <body>
+    <form name="subjectFrm">
+      <fieldset>
+        <legend>신청과목</legend>
+        <p>이달에 신청할 과목을 선택하세요.</p>
+        <label><input type="radio" name="subject" value="sb001" />회화</label>
+        <label><input type="radio" name="subject" value="sb002" />문법</label>
+        <label><input type="radio" name="subject" value="sb003" />작문</label>
+      </fieldset>
+    </form>
+
+    <form name="newsFrm">
+      <fieldset>
+        <legend>메일링</legend>
+        <p>메일로 받고 싶은 뉴스를 선택하세요</p>
+        <label
+          ><input type="radio" name="news" value="news001" />해외단신</label
+        >
+        <label><input type="radio" name="news" value="news002" />5분회화</label>
+        <label
+          ><input type="radio" name="news" value="news003" />모닝팝스</label
+        >
+      </fieldset>
+    </form>
+    <br />
+    <button onclick="goOutput()">값출력</button>
+    <button onclick="showAlert()">알림창출력</button>
+    <script>
+      const subjectEl = document.subjectFrm.subject;
+      function goOutput() {
+        //type=radio >> value값이 있어야 .value로 사용자가 클릭한 값이 출력됨
+        console.log(subjectEl.value);
+
+        //체크활성화여부 : checked(true | false)
+        console.log(subjectEl[0].checked);
+
+        for (item of subjectEl) {
+          if (item.checked) {
+            console.log(item.value);
+          }
+        }
+      }
+      /* showAlert함수
+        1) 메일링에서 사용자가 클릭한 값이 알림창으로 출력
+        2) 단, 값이 비어있는 경우에는 입력하라는 알림창으로 출력
+      */
+      function showAlert() {
+        const newsVal = document.newsFrm.news.value;
+        alert(newsVal);
+      }
+    </script>
+  </body>
+</html>

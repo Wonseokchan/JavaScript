@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼요소접근</title>
+  </head>
+  <body>
+    <input type="text" id="userName" />
+    <form name="order">
+      <fieldset>
+        <legend>상품정보</legend>
+        <ul>
+          <li>
+            <label for="goods">상품:</label>
+            <input type="text" id="goods" />
+          </li>
+          <li>
+            <label for="price">가격:</label>
+            <input type="text" id="price" />
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+    <button onclick="goOutput()">값 출력</button>
+    <script>
+      /* 폼 요소의 입력요소 접근 */
+      const inputEl = document.querySelector("#userName");
+
+      function goOutput() {
+        //요소접근 방식으로 값을 출력
+        console.log(inputEl.value);
+        //name 속성으로 접근
+        console.log(document.order.elements["goods"].value);
+        console.log(document.order.goods);
+        console.log(document.order.goods.value);
+
+        console.log(document.order.price.value);
+      }
+    </script>
+  </body>
+</html>

@@ -126,9 +126,11 @@
 
       function modeChange() {
         const toggleVal = mainEl.classList.toggle("color");
+        const btEl = document.querySelector(".mode");
         if (toggleVal) {
-          const btEl = document.querySelector(".mode");
           btEl.innerText = "라이트모드";
+        } else {
+          btEl.innerText = "다크모드";
         }
       }
 

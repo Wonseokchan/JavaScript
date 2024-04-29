@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>체크박스접근</title>
+  </head>
+  <body>
+    <form name="checkboxFrm">
+      <fieldset>
+        <legend>신청과목</legend>
+        <p>이달에 신청할 과목을 선택하세요</p>
+        <label
+          ><input type="checkbox" name="subject" value="sub001" />회화</label
+        >
+        <label
+          ><input type="checkbox" name="subject" value="sub002" />문법</label
+        >
+        <label
+          ><input type="checkbox" name="subject" value="sub003" />작문</label
+        >
+      </fieldset>
+    </form>
+    <button onclick="goOutput()">값출력</button>
+
+    <script>
+      const ckEl = document.checkboxFrm.subject;
+      function goOutput() {
+        //console.log(ckEl[2].value);
+        //checked : 활성화여부(true | false)
+        //console.log(ckEl[2].checked);
+        const activeArr = [];
+        for (item of ckEl) {
+          if (item.checked) {
+            activeArr.push(item.value);
+          }
+        }
+        console.log(activeArr);
+
+        const activeArr2 = document.querySelectorAll(
+          "[name='subject']:checked"
+        );
+        console.log(activeArr2);
+      }
+    </script>
+  </body>
+</html>

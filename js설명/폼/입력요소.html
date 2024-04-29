@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력요소</title>
+  </head>
+  <body>
+    <form name="frm">
+      <input type="text" name="userId" />
+      <input type="password" name="userPw" />
+      <textarea name="contents"></textarea>
+    </form>
+    <button onclick="goOutput()">값출력</button>
+    <script>
+      const goOutput = () => {
+        console.log("userId:", document.frm.userId.value);
+        console.log("userPw:", document.frm.userPw.value);
+        console.log("contents:", document.frm.contents.value);
+      };
+    </script>
+  </body>
+</html>

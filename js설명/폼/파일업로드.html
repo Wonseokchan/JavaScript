@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>파일업로드</title>
+  </head>
+  <body>
+    <form name="frm">
+      <input type="file" name="upload" multiple />
+    </form>
+    <button onclick="goOutput()">값출력</button>
+    <script>
+      /* files속성 : fileList객체 반환 */
+      function goOutput() {
+        const el = document.frm.upload.files;
+        console.log(el);
+        //console.log(el[0]?.name);
+        for (item of el) {
+          console.log(item.name);
+        }
+        if (el.length > 0) {
+          console.log(el[0]);
+          console.log(el[0].name); //파일이름
+          console.log(el[0].size); //파일크기
+          console.log(el[0].type); //파일타입(확장자)
+          console.log(el[0].lastModifiedDate); //마지막수정일
+        } else {
+          console.log("입력된 파일이 없습니다");
+        }
+        //fileObj.name = el[0].name;
+      }
+    </script>
+  </body>
+</html>

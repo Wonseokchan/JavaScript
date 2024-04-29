@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택목록접근</title>
+  </head>
+  <body>
+    <label for="major">학과</label>
+    <select id="major">
+      <option>- 학과선택 -</option>
+      <option value="major001">건축공학과</option>
+      <option value="major002">컴퓨터공학과</option>
+      <option value="major003">기계공학과</option>
+      <option value="major004">화학공학과</option>
+    </select>
+    <button onclick="goOutput()">값출력</button>
+    <button onclick="showAlert()">알림창출력</button>
+    <button onclick="fn_selected()">콤보박스활성화</button>
+
+    <script>
+      const selectEl = document.querySelector("#major");
+      function goOutput() {
+        //요소.options : select 안의 option 태그들을 유사배열로 반환
+        console.log(selectEl.options[1]);
+        console.log(selectEl.options[2].value);
+
+        //요소.selectedIndex : 사용자가 선택한 인덱스값
+        console.log("인덱스값:", selectEl.selectedIndex);
+        console.log(
+          "인덱스 value:",
+          selectEl.options[selectEl.selectedIndex].value
+        );
+        console.log(
+          "인덱스innerText:",
+          selectEl.options[selectEl.selectedIndex].innerText
+        );
+      }
+
+      function showAlert() {
+        //option태그에 value 값이 없으면 innerText에 해당하는 값 출력
+        alert(selectEl.options[selectEl.selectedIndex].innerText);
+      }
+
+      function fn_selected() {
+        const options = document.querySelectorAll("option");
+        for (item of options) {
+          if (item.selected) {
+            console.log(item.value);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
