@@ -219,10 +219,12 @@
         } else {
           cityEl2.classList.add("popup");
         }
-        if (typeof birthEl.value == "string") {
+        /*if (typeof birthEl.value == "string") {
           alert("생년월일을 숫자로 8자리 입력해주세요");
           return false;
-        }
+        } else {
+          return true;
+        }*/
         return true;
       }
 
@@ -240,21 +242,24 @@
               activeArr.push(item.value);
             }
           }
+          if (pwEl.value != vrpw.value) {
+            alert("비밀번호 확인 실패입니다");
+          } else {
+            alert("회원가입완료");
 
-          alert("회원가입완료");
-
-          console.log("아이디:", idEl.value);
-          console.log("비밀번호:", pwEl.value);
-          console.log("전화번호:", pnEl.value);
-          console.log("이름:", nmEl.value);
-          console.log("생년월일:", birthEl.value);
-          console.log("지역:", cityEl.value);
-          console.log(
-            "프로필:",
-            fileEl.files.length > 0 ? fileEl.files[0].name : ""
-          );
-          console.log("성별:", genderEl.value);
-          console.log("관심분야:", activeArr.join()); //arr1, arr2
+            console.log("아이디:", idEl.value);
+            console.log("비밀번호:", pwEl.value);
+            console.log("전화번호:", pnEl.value);
+            console.log("이름:", nmEl.value);
+            console.log("생년월일:", birthEl.value);
+            console.log("지역:", cityEl.value);
+            console.log(
+              "프로필:",
+              fileEl.files.length > 0 ? fileEl.files[0].name : ""
+            );
+            console.log("성별:", genderEl.value);
+            console.log("관심분야:", activeArr.join()); //arr1, arr2
+          }
         }
       }
 
