@@ -6,14 +6,31 @@
     <title>폼미션</title>
     <link rel="stylesheet" href="/style/form.css" />
     <style>
+      section {
+        margin-bottom: 0;
+      }
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
       .asignbt {
-        margin-left: 20px;
+        margin-left: 5%;
         padding: 0.5em 1em;
         background: #10b981;
         color: #fff;
         border: none;
         border-radius: 5px;
         font-weight: 500;
+        cursor: pointer;
+      }
+      #userbirth {
+        width: 100%;
+      }
+
+      label,
+      input[type="radio"],
+      input[type="checkbox"] {
         cursor: pointer;
       }
       .pwbt {
@@ -27,7 +44,6 @@
       }
       .popup {
         display: none;
-        color: coral;
       }
     </style>
   </head>
@@ -40,40 +56,61 @@
           <p>회원가입을 위한 정보를 입력해주세요</p>
 
           <div class="nice-form-group">
-            <label>아이디</label>
-            <input type="text" placeholder="Your id" value="" />
+            <label for="userID">아이디</label>
+            <input type="text" placeholder="Your id" id="userID" />
+            <p class="popup" id="nid" style="color: coral">
+              아이디를 입력하세요
+            </p>
           </div>
 
           <div class="nice-form-group">
-            <label>비밀번호</label>
-            <input type="password" placeholder="Your Pw" />
-            <p class="popup">비밀번호 입력하세요</p>
+            <label for="userPW">비밀번호</label>
+            <input type="password" placeholder="Your Pw" id="userPW" />
+            <p class="popup" id="npw" style="color: coral">
+              비밀번호 입력하세요
+            </p>
           </div>
 
           <div class="nice-form-group">
-            <label>비밀번호 확인</label>
+            <label for="vrpw">비밀번호 확인</label>
             <input
               type="password"
               placeholder="Your Pw Confirm"
               style="width: 70%"
+              id="vrpw"
             />
-            <button class="pwbt">비밀번호확인</button>
-            <p class="popup">확인할 비밀번호를 입력하세요</p>
+            <button class="pwbt" onclick="verifyPW()">비밀번호확인</button>
+            <p class="popup" id="verifypw" style="color: coral">
+              확인할 비밀번호를 입력하세요
+            </p>
           </div>
 
           <div class="nice-form-group">
-            <label>전화번호</label>
-            <input type="tel" placeholder="Your phone" value="" />
+            <label for="userPhone">전화번호</label>
+            <input
+              type="tel"
+              placeholder="Your phone"
+              id="userPhone"
+              maxlength="11"
+              ,
+              minlength="11"
+            />
           </div>
 
           <div class="nice-form-group">
-            <label>이름</label>
-            <input type="text" placeholder="Your name" />
+            <label for="userNM">이름</label>
+            <input type="text" placeholder="Your name" id="userNM" />
+            <p class="popup" id="nNM" style="color: coral">이름을 입력하세요</p>
           </div>
 
           <div class="nice-form-group">
-            <label>생년월일8자리</label>
-            <input type="text" placeholder="Your birth" />
+            <label for="userbirth">생년월일8자리</label>
+            <input
+              type="text"
+              placeholder="Your birth"
+              id="userbirth"
+              maxlength="8"
+            />
           </div>
 
           <div class="nice-form-group">
@@ -85,29 +122,166 @@
               <option value="city03">대전</option>
               <option value="city04">부산</option>
             </select>
-            <br />
+            <p class="popup" id="ct" style="color: coral">
+              사는 지역을 선택하세요
+            </p>
+          </div>
+          <form name="fileFrm">
             <div class="nice-form-group">
               <label>프로필 사진 등록하기</label>
-              <input type="file" />
+              <input type="file" name="upload" />
             </div>
-            <br />
+          </form>
+          <form name="genderFrm">
             <div class="nice-form-group">
               성별
-              <label><input type="radio" name="gender" />남자</label>
-              <label><input type="radio" name="gender" />여자</label>
+              <label><input type="radio" name="gender" value="M" />남자</label>
+              <label><input type="radio" name="gender" value="W" />여자</label>
             </div>
-            <br />
+          </form>
+          <form name="intFrm">
             <div class="nice-form-group">
               관심분야
-              <label><input type="checkbox" />CSS</label>
-              <label><input type="checkbox" />HTML</label>
-              <label><input type="checkbox" />Javascript</label>
-              <label><input type="checkbox" />Java</label>
+              <label
+                ><input type="checkbox" name="interest" value="CSS" />CSS</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest"
+                  value="HTML"
+                />HTML</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest"
+                  value="Javascript"
+                />Javascript</label
+              >
+              <label
+                ><input
+                  type="checkbox"
+                  name="interest"
+                  value="Java"
+                />Java</label
+              >
             </div>
-          </div>
+          </form>
         </section>
-        <button class="asignbt">회원가입요청</button>
+        <br />
+        <button class="asignbt" onclick="signIn()">회원가입요청</button>
       </main>
     </div>
+
+    <script>
+      const idEl = document.querySelector("#userID");
+      const pwEl = document.querySelector("#userPW");
+      const pnEl = document.querySelector("#userPhone");
+      const nmEl = document.querySelector("#userNM");
+      const birthEl = document.querySelector("#userbirth");
+      const cityEl = document.querySelector("#city");
+      const genderEl = document.genderFrm.gender;
+      const interestEl = document.intFrm.interest;
+      const fileEl = document.fileFrm.upload;
+      const idEl2 = document.querySelector("#nid");
+      const pwEl2 = document.querySelector("#npw");
+      const nmEl2 = document.querySelector("#nNM");
+      const cityEl2 = document.querySelector("#ct");
+      const vrpwEl = document.querySelector("#vrpw");
+      const vrpwEl2 = document.querySelector("#verifypw");
+
+      let isConfirm = false;
+
+      //유효성검사
+      function validationCheck() {
+        if (idEl.value == "") {
+          idEl2.classList.remove("popup");
+          return false;
+        } else {
+          idEl2.classList.add("popup");
+        }
+        if (pwEl.value == "") {
+          pwEl2.classList.remove("popup");
+          return false;
+        } else {
+          pwEl2.classList.add("popup");
+        }
+        if (nmEl.value == "") {
+          nmEl2.classList.remove("popup");
+          return false;
+        } else {
+          nmEl2.classList.add("popup");
+        }
+        if (cityEl.selectedIndex == "") {
+          cityEl2.classList.remove("popup");
+          return false;
+        } else {
+          cityEl2.classList.add("popup");
+        }
+        if (typeof birthEl.value == "string") {
+          alert("생년월일을 숫자로 8자리 입력해주세요");
+          return false;
+        }
+        return true;
+      }
+
+      function signIn() {
+        const validation = validationCheck();
+        if (validation) {
+          if (!isConfirm) {
+            alert("비밀번호 확인을 먼저 진행해주세요");
+            return;
+          }
+
+          const activeArr = [];
+          for (item of interestEl) {
+            if (item.checked) {
+              activeArr.push(item.value);
+            }
+          }
+
+          alert("회원가입완료");
+
+          console.log("아이디:", idEl.value);
+          console.log("비밀번호:", pwEl.value);
+          console.log("전화번호:", pnEl.value);
+          console.log("이름:", nmEl.value);
+          console.log("생년월일:", birthEl.value);
+          console.log("지역:", cityEl.value);
+          console.log(
+            "프로필:",
+            fileEl.files.length > 0 ? fileEl.files[0].name : ""
+          );
+          console.log("성별:", genderEl.value);
+          console.log("관심분야:", activeArr.join()); //arr1, arr2
+        }
+      }
+
+      function verifyPW() {
+        if (pwEl.value == "") {
+          pwEl2.classList.remove("popup");
+          return;
+        } else {
+          pwEl2.classList.add("popup");
+        }
+        if (vrpwEl.value == "") {
+          vrpwEl2.classList.remove("popup");
+          return;
+        } else {
+          vrpwEl2.classList.add("popup");
+        }
+
+        if (pwEl.value == vrpw.value) {
+          alert("비밀번호 확인 성공입니다");
+          pwEl2.classList.add("popup");
+          vrpwEl2.classList.add("popup");
+          isConfirm = true;
+        } else {
+          alert("비밀번호 확인 실패입니다");
+          isConfirm = false;
+        }
+      }
+    </script>
   </body>
 </html>
