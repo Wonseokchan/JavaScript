@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트기본1</title>
+    <style>
+      .pink {
+        background-color: pink;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+      .gray {
+        background-color: gray;
+      }
+      .m-10 {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="yellow m-10" onclick="goClick()">클릭</div>
+    <div class="pink m-10" onmousedown="goDown()">마우스다운</div>
+    <div class="green m-10" onmouseover="goOver()">마우스오버</div>
+    <div class="gray m-10" onmouseout="goOut()">마우스아웃</div>
+    <script>
+      /* 이벤트 : 웹 브라우저, 사용자가 실행하는 어떤 동작들을 의미
+        웹 문서 영역 안에서 이루어지는 동작만을 의미함
+      */
+      //문서로딩 이벤트(문서가져오기, 스크롤 등 관련되어 있음)
+      //load : 문서로딩이 끝났을 때
+      //window.onload = alert("ㅎㅇ");
+      window.onload = () => {};
+
+      //마우스 이벤트 : 마우스에서 버튼이나 휠 조작 시 발생
+      //click : 마우스 클릭하고 뗄 때
+      const goClick = () => {
+        console.log("마우스클릭");
+      };
+      //mousedown : 마우스 버튼 눌렀을 때
+      const goDown = () => {
+        console.log("마우스다운");
+      };
+      //mouseover : 마우스 포인터가 요소 위로 올라갔을 때
+      const goOver = () => {
+        console.log("마우스오버");
+      };
+      //mouseoudt : 마우스 포인터가 요소를 벗어났을 때
+      const goOut = () => {
+        console.log("마우스아웃");
+      };
+    </script>
+  </body>
+</html>

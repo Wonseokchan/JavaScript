@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" onmouseover="goOver()"></div>
+    <script>
+      const colors = ["red", "yellow", "green", "blue", "black"];
+      const boxEl = document.querySelector("#box");
+
+      const goOver = () => {
+        const radomNum = Math.floor(Math.random() * colors.length);
+        boxEl.style.backgroundColor = colors[radomNum];
+      };
+    </script>
+  </body>
+</html>

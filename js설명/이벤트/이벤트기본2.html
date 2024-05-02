@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트기본2</title>
+  </head>
+  <body>
+    <input type="text" id="inputText" />
+    <script>
+      /* 키보드 관련 이벤트 */
+      const inputEl = document.querySelector("#inputText");
+      //keydown : 키를 누르는 순간 발생(키에 대한 정보 전달)
+      /*inputEl.addEventListener("keydown", (e) => {
+        console.log(e);
+        console.log(e.keyCode); //엔터기 : 13
+
+        if (e.keyCode == 13) {
+          console.log("엔터입력됨");
+        }
+      });*/
+
+      //keypress : 키를 누르고 문자입력시 발생
+      //권장안함
+      inputEl.addEventListener("keypress", (e) => {
+        console.log(e);
+      });
+
+      //keyup : 키에서 손을 뗄 때
+      inputEl.addEventListener("keyup", (e) => {
+        console.log("손뗌");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트기본3</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="textInput" />
+      <input type="text" />
+    </form>
+    <script>
+      /* 폼이벤트 : 폼 요소 내에서 발생하는 이벤트 -> 입력요소와 관련된 이벤트 */
+      //change : 목록, 체크상태 등이 변경 시 사용(ex. input, select, textarea)
+      const inputEl = document.querySelector("#textInput");
+      inputEl.addEventListener("change", (e) => {
+        console.log(e.target.value);
+      });
+
+      //focus : 폼 요소에 포커스를 놓았을 때(ex. label, select, textarea, button)
+      inputEl.addEventListener("focus", (e) => {
+        console.log(e);
+        e.target.style.backgroundColor = "yellow";
+      });
+
+      //blur : 포커스가 빠져나감
+
+      inputEl.addEventListener("blur", (e) => {
+        e.target.style.backgroundColor = "";
+      });
+    </script>
+  </body>
+</html>

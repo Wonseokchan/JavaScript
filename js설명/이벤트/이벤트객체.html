@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트객체</title>
+    <style>
+      #box {
+        background-color: aliceblue;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        top: 200px;
+        left: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <input type="text" />
+    <script>
+      /* event객체 : 이벤트와 관련된 정보를 저장하고 있는 객체 */
+      const boxEl = document.querySelector("#box");
+      boxEl.addEventListener("click", (e) => {
+        console.log(e);
+        console.log("이벤트가로위치: ", e.pageX);
+        console.log("이벤트세로위치: ", e.pageY);
+        console.log("이벤트발생대상: ", e.target);
+      });
+
+      //event.code | event.key
+      const inputEl = document.querySelector("input");
+      inputEl.addEventListener("keydown", (e) => {
+        console.log(e);
+        console.log(e.code);
+        console.log(e.key);
+
+        if (e.code == "Enter") {
+          console.log("엔터임");
+        }
+      });
+    </script>
+  </body>
+</html>

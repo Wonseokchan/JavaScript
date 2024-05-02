@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트처리1</title>
+  </head>
+  <body>
+    <div id="event-div" onclick="console.log('event');">이벤트</div>
+    <script>
+      const divEl = document.getElementById("event-div");
+      //   divEl.onclick = () => {
+      //     console.log("클릭클릭");
+      //   };
+
+      function logs() {
+        console.log("logs");
+      }
+      divEl.onclick = logs;
+    </script>
+  </body>
+</html>
