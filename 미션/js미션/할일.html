@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/plan.css" />
+    <style>
+      .icon-delete {
+        width: 45px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>5월 3일의 할 일</div>
+      <div>
+        <input id="chk01" type="checkbox" class="plan" />
+        <label for="chk01"
+          >첫 번째 할 일
+          <button class="icon-delete">삭제</button>
+        </label>
+      </div>
+      <div>
+        <input id="chk02" type="checkbox" class="plan" />
+        <label for="chk02"
+          >두 번째 할 일
+          <button class="icon-delete">삭제</button>
+        </label>
+      </div>
+      <div>
+        <input id="chk03" type="checkbox" class="plan" />
+        <label for="chk03"
+          >세 번째 할 일
+          <button class="icon-delete">삭제</button>
+        </label>
+      </div>
+      <div>
+        <input type="text" />
+        <button>추가</button>
+      </div>
+      <!-- <div>
+        <input id="chk04" type="checkbox" />
+        <label for="chk04">Sint maxime ex nisi iste!</label>
+      </div>
+      <div>
+        <input id="chk05" type="checkbox" />
+        <label for="chk05">Quisquam, ipsam autem veniam libero!</label>
+      </div>
+      <div class="total">Total checked:</div> -->
+    </section>
+    <script>
+      const planEl = document.querySelector(".plan");
+      const labelEl = document.querySelector("label");
+      let isConfirm = false;
+      planEl.addEventListener("click", (e) => {
+        labelEl.style.textDecoration = "line-through";
+        isConfirm = false;
+        if (!isConfirm) {
+          labelEl.style.labelEl.style.textDecoration = "";
+        }
+      });
+    </script>
+  </body>
+</html>

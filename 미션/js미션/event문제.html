@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event문제</title>
+    <style>
+      .item:hover {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul type="none">
+        <li>
+          product1
+          <button>add</button>
+        </li>
+        <li>
+          product2
+          <button>add</button>
+        </li>
+        <li>
+          product3
+          <button>add</button>
+        </li>
+        <li>
+          product4
+          <button>add</button>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Cart</h2>
+      <ul id="cartItems"></ul>
+    </div>
+    <script>
+      const buttonEls = document.querySelectorAll("button");
+      const cartEl = document.querySelector("#cartItems");
+
+      for (item of buttonEls) {
+        item.addEventListener("click", (e) => {
+          const target = e.target.parentElement.innerText.split(" ")[0];
+          cartEl.innerHTML += `<li class='item'>${target}</li>`;
+          //   const liEl = document.createElement("li");
+          //   liEl.innerText = target;
+          //   cartEl.appendChild(liEl);
+
+          //   liEl.addEventListener("mouseover", (e) => {
+          //     e.target.style.backgroundColor = "yellow";
+          //     e.target.style.cursor = "pointer";
+          //   });
+
+          //   liEl.addEventListener("mouseout", (e) => {
+          //     e.target.style.backgroundColor = "";
+          //   });
+        });
+      }
+    </script>
+  </body>
+</html>

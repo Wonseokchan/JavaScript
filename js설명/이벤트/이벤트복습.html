@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트복습</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="this.style.backgroundColor='red'">클릭</div>
+    <div id="div2">마우스오버</div>
+    <div id="div3">마우스아웃</div>
+
+    <input type="text" />
+
+    <ul>
+      <li class="bg-pink">목록1</li>
+      <li>목록2</li>
+    </ul>
+    <script>
+      window.onload = () => {
+        console.log("로딩이 끝났을 때 발생");
+      };
+      const divEl = document.querySelector("div");
+      const div2El = document.querySelector("#div2");
+      //마우스관련이벤트
+      //click, mouseover, mouseout
+      function click() {
+        divEl.style.backgroundColor = "yellow";
+      }
+      function over() {
+        divEl.style.backgroundColor = "green";
+      }
+      function out() {
+        divEl.style.backgroundColor = "blue";
+      }
+      div2El.addEventListener("mouseover", () => {
+        div2El.style.backgroundColor = "green";
+      });
+
+      const div3El = document.querySelector("#div3");
+      div3El.onmouseout = () => {
+        div3El.style.backgroundColor = "pink";
+      };
+
+      const inputEl = document.querySelector("input");
+      inputEl.addEventListener("change", (e) => {
+        console.log(e.target);
+        console.log(e.target.value);
+      });
+
+      div3El.addEventListener("click", (e) => {
+        console.log(e);
+      });
+
+      const li1 = document.querySelector("#li1");
+      const li2 = document.querySelector("#li2");
+      const liEls = document.querySelectorAll("li");
+      //   li1.addEventListener("click", (e) => {
+      //     console.log(e);
+      //   });
+
+      //   li2.addEventListener("click", (e) => {
+      //     console.log(e);
+      //   });
+
+      liEls.forEach((ele) => {
+        console.log(ele);
+        ele.addEventListener("click", (e) => {
+          console.log(e.target);
+        });
+      });
+
+      const ulEl = document.querySelector("ul");
+      ulEl.addEventListener("click", (e) => {
+        console.log(e.target);
+        console.log(e.target.classList);
+        e.target.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>

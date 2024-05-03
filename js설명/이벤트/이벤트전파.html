@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트전파</title>
+    <style>
+      div {
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+      }
+      section {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <section></section>
+    </div>
+    <a href="https://www.naver.com">click</a>
+    <script>
+      /* 이벤트전파 : 웹 요소에 이벤트 발생 시 해당 요소 감싸는 부모에게도 이벤트가 처리됨
+      => 이벤트버블링
+      */
+
+      //event.stopPropagation() : 이벤트버블 막아줌
+      const elements = document.querySelectorAll("body *");
+      for (item of elements) {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          console.log("=>", e.target.tagName);
+          console.log("->>", e.currentTarget.tagName);
+        });
+      }
+
+      //event.preventDefault() : 이벤트의 기본 동작을 취소해줌
+      const aEl = document.querySelector("a");
+      aEl.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("알림창띄움");
+      });
+    </script>
+  </body>
+</html>
