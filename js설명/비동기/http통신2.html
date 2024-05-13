@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http통신2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="ta-div"></div>
+    <script>
+      /* */
+      const authKey =
+        "s9LtJ4f28XKtHHjtRa94y0gWEWaArpqpuNkbkpRyVgYYyLDPigB20QyFaSduFmFXXydgwTJSD4Ef53t5Z1%2BnFg%3D%3D";
+      const url = `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&regId=11B10101&tmFc=202405121800&dataType=json`;
+
+      const regArr = [
+        "11A00101",
+        "11B10101",
+        "11B10102",
+        "11B10103",
+        "11B20101",
+      ];
+
+      const viewTa = (arr) => {
+        const taDiv = document.querySelector("#ta-div");
+
+        arr.forEach((ele) => {
+          console.log("=>", ele.regId); //지역코드
+          console.log("3일후지역최고기온 : ", ele.taMax3);
+
+          taDiv.innerHTML += `<p>${ele.regId}: ${ele.taMax3}</p>`;
+        });
+      };
+      const arr = [];
+
+      const getTa = () => {
+        regArr.forEach(async (el) => {
+          const res = await axios.get(
+            `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&regId=${el}&tmFc=202405121800&dataType=json`
+          );
+          arr.push(res.data.response.body.items.item[0]);
+
+          if (arr.length == regArr.length) {
+            viewTa(arr);
+          }
+        });
+      };
+      getTa();
+    </script>
+  </body>
+</html>

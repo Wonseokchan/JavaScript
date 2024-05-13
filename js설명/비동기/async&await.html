@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async&await</title>
+  </head>
+  <body>
+    <script>
+      /* 비동기 처리의 방법
+        3) async & await
+        - async : 비동기함수로 만들어줌(코드블록이 promise 객체로 변환해줌) 
+
+        promise rej(오류나면) => catch로 잡을 수 있음
+        async는 에러처리를 직접 해야함 (도움을 주는 catch같은 콜백함수가 없음)
+        
+        */
+
+      const promiseFunc = () => {
+        return new Promise((res, rej) => {
+          res("성공");
+        });
+      };
+      console.log(promiseFunc());
+
+      const asyncFunc = async () => {
+        return "성공!";
+      };
+      // () => { return "성공!"; };   <== 이 만큼의 영역이 async가 붙어있으면 promise객체가 됨
+      console.log(asyncFunc());
+
+      asyncFunc(); // 호출하면 promise 객체 내뱉음
+      asyncFunc().then((res) => console.log(res));
+    </script>
+  </body>
+</html>

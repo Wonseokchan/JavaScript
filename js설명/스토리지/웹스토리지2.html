@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹스토리지2</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <label>이름 <input type="text" id="name" /></label><br />
+    <label>전화번호 <input type="tel" id="phone" /></label><br />
+    <label>이메일 <input type="text" id="email" /></label><br />
+    <!-- 체크박스는 다중선택 -->
+    <label>css <input type="checkbox" value="css" name="skill" /></label>
+    <label>js <input type="checkbox" value="js" name="skill" /></label>
+    <label>java <input type="checkbox" value="java" name="skill" /></label>
+    <br /><br />
+    <button>저장</button>
+
+    <script>
+      /* 저장을 누르면
+        username : 이름값
+        usertel : 전화번호값
+        useremail : 이메일값
+        userskill : 체크박스 활성화된 값 (배열객체)
+        로컬스토리지에 담기
+        */
+
+      // 첫번째 방법 : dom객체 접근하기
+      //   const btnEl = document.querySelector("button");
+
+      //   btnEl.addEventListener("click", () => {
+      //     localStorage.setItem("userName", document.getElementById("name").value);
+
+      //     localStorage.setItem("usertel", document.getElementById("phone").value);
+
+      //     localStorage.setItem("email", document.getElementById("email").value);
+
+      //     // 체크박스 활성화된 값들 배열 담기
+      //     const check = document.querySelectorAll('input[name="skill"]:checked');
+      //     let checkArr = [];
+      //     check.forEach((ele) => {
+      //       checkArr.push(ele.value);
+      //     });
+
+      //     localStorage.setItem("userskill", JSON.stringify(checkArr));
+      //   });
+
+      // 두번째 방법 : JQUERY 방법으로 접근하기
+      $("button").click(() => {
+        localStorage.setItem("userName", $("#name").val());
+        localStorage.setItem("usertel", $("#phone").val());
+        localStorage.setItem("useremail", $("#email").val());
+
+        const arr = [];
+        $("[name=skill]:checked").each((index, ele) => {
+          arr.push($(ele).val());
+        });
+        localStorage.setItem("userskill", JSON.stringify(arr));
+      });
+    </script>
+  </body>
+</html>

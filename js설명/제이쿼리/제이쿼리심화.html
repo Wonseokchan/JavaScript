@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리심화</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <label> <input type="checkbox" name="field" value="css" />css</label>
+    <label> <input type="checkbox" name="field" value="js" />js</label>
+    <label> <input type="checkbox" name="field" value="java" />java</label>
+    <button id="btn1">활성화확인</button>
+
+    <br /><br />
+    <select id="mySelect">
+      <option value="1">항목1</option>
+      <option value="2">항목2</option>
+      <option value="3">항목3</option>
+    </select>
+
+    <button id="btn2">새로운항목추가</button>
+    <button id="btn3">특정항목제거</button>
+    <button id="btn4">on메서드</button>
+
+    <script>
+      const fields = $("input[name='field']");
+      console.log(fields);
+      // fields.prop("checked", true); // .prop() 메소드는 보통 true / false 사용하는 것에 씀
+      // for문 돌리지 않아도 한번에 적용할 수 있다
+
+      /* click() : click 이벤트 연결 */
+
+      $("#btn1").click(() => {
+        // .is(":checked") : 체크박스 활성화 확인 (true, false로 반환)
+        const isChecked = $("input[value='css']").is(":checked");
+        console.log(isChecked); // true / false반환
+
+        /* 활성화된 요소 출력 */
+        // each(콜백함수) : foreach 같은 함수
+        //                  요소 반복함수 => this를 전달해주기도 함 (단, 기본익명함수만)
+        // eact(콜백함수(index, element))
+
+        // 화살표 함수 쓰고 this로 접근하면 window객체에 접근함
+        fields.each(() => {
+          console.log("111");
+          console.log($(this)); // window 객체 나옴
+        });
+        // this 객체를 사용하려면 화살표 함수가 아니라 기본 function(){} 으로 사용해야함
+        fields.each(function () {
+          console.log("111");
+          console.log("fun", $(this));
+        });
+
+        // 활성화된 input만 .each돌림
+        $("input[name='field']:checked").each(function () {
+          console.log($(this));
+        });
+
+        fields.each((index, ele) => {
+          console.log(`index : ${index}`);
+          console.log(`ele : ${ele}`);
+          console.log(index);
+          console.log(ele);
+        });
+
+        fields.each(function (index, ele) {
+          console.log(`index : ${index}`);
+          console.log(ele);
+          console.log($(this));
+        });
+
+        /* 활성화버튼 누르면 누른 시점에 활성화된 값의 글자색을 빨간색으로 변경 해보기*/
+        // parent() : 부모요소
+        $("input[name='field']:checked").each(function () {
+          console.log($(this));
+          $(this).parent().css("color", "red");
+        });
+
+        $("input[name='field']:checked").each((index, ele) => {
+          console.log("ele >> ", ele);
+          console.log("$ele >>", $(ele));
+          // this = ele
+          $(ele).parent().css("color", "red");
+        });
+      });
+
+      /* change() : change 이벤트 연결 */
+
+      // event객체: 이벤트와 관련된 정보 (e.target, e.currentTarget)
+      // jquery도 이벤트 객체가 넘어옴
+      $("#mySelect").change(function (e) {
+        // console.log($(e.target).val()); --> 방식1
+        console.log($(this).val()); // --> 방식2
+
+        // $("#mySelect").change((e) => {
+        //   console.log($(e.target).val()); // --> 방식3
+        // }); // 변화되는 value값 출력됨
+
+        /* 항목2를 선택하면 글자색 빨강으로 바꿔보기 */
+        if ($(this).val() == 2) {
+          $(this).css("color", "red");
+        }
+      });
+
+      /* .append() : 자식요소로 새로운 내용 추가 */
+      $("#btn2").click(() => {
+        $("#mySelect").append('<option value="4">항목4</option>');
+
+        // 두번째 방법
+        const ele = $('<option value="5">').text("항목5");
+        $("#mySelect").append(ele);
+
+        // 세번째 방법(태그 따로 만들어서 붙이기)
+        const ele2 = $("<option>");
+        ele2.attr("value", 6);
+        ele2.text("항목6");
+        $("#mySelect").append(ele2);
+
+        // 네번째 방법(체이닝)
+        $("#mySelect").append($("<option>").attr("value", 7).text("항목7"));
+      });
+
+      /* .remove() : 특정항목 제거 */
+      $("#btn3").click(function () {
+        $("option[value=3]").remove(); // 항목3만 지워짐
+      });
+
+      // on() : 이벤트 핸들러 연결
+      $("#btn4").on({
+        // 키, 값
+        click: function (e) {
+          console.log("클릭이벤트: ", e.target);
+        },
+        mouseover: function (e) {
+          $(e.target).css("color", "red");
+        },
+      });
+
+      // mySelect > option : 마우스가 올라가면 배경색 pink
+      // mySelect > option : 마우스가 벗어나면 다시 원래색
+      // mySelect > 값이 바뀌면 : 콘솔에 해당하는 값을 출력
+
+      $("#mySelect").on({
+        mouseover: function (e) {
+          $("#mySelect").css("background-color", "pink");
+        },
+        mouseout: function (e) {
+          $("#mySelect").css("background-color", "");
+        },
+        change: function (e) {
+          console.log($(e.target).val());
+          console.log("mySelect val -->", $("mySelect").val());
+        },
+      });
+
+      /* .hover(): 마우스오버되었을 때 실행, 벗어났을 때도 실행 */
+      $("button").hover(
+        function (e) {
+          // 첫번재 인자: 마우스오버가 되었을 때
+          $(e.target).css("background-color", "blue");
+        },
+        function () {
+          // 두번째 인자: 마우스오버에서 벗어났을 때
+          $(this).css("background-color", "");
+        }
+      );
+    </script>
+  </body>
+</html>

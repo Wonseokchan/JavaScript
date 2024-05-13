@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할일이벤트</title>
+    <link rel="stylesheet" href="/style/TODO.css" />
+  </head>
+  <body>
+    <h1>5/3 Todo List</h1>
+    <ul>
+      <div>
+        <li class="list">first thing to do</li>
+        <button class="bubbly-button">Remove</button>
+      </div>
+      <div>
+        <li class="list">second thing to do</li>
+        <button class="bubbly-button">Remove</button>
+      </div>
+      <div>
+        <li class="done list">third thing to do</li>
+        <button class="bubbly-button">Remove</button>
+      </div>
+
+      <div>
+        <li class="done list">thing to do</li>
+        <button class="bubbly-button">Remove</button>
+      </div>
+    </ul>
+    <!-- /////////////////////////////// -->
+    <form>
+      <label for="text"> TO DO </label>
+      <input type="text" id="text" value="TODO" />
+      <button>ADD</button>
+    </form>
+
+    <script>
+      const liClick = document.querySelectorAll("li");
+      console.log(liClick);
+      liClick.forEach((ele) => {
+        liClick.addEventListener("click", (e) => {
+          console.log(e);
+          liClick.classList.add("done");
+        });
+      });
+
+      //   liClick.addEventListener("click", () => {
+      //     console.log(liClick);
+      //     liClick.classList.add("done");
+      //   });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리기본</title>
+    <!-- /* 라이브러리 : 개발자가 필요할 때 가져와서 사용하는 도구 모음 (제이쿼리는 라이브러리)
+    vs 프레임워크 : 어떤 목적을 위한 기본 구조를 제공, 그 안에서
+    코드를 작성해나가는 형태 규칙을 지키지 않으면 사용할 수 없다 */ -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .bg-pink {
+        background-color: pink;
+      }
+      .blue {
+        color: blue;
+      }
+      .dark-mode {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hi" class="blue">안녕</div>
+    <a id="link" href="https://www.naver.com">네이버</a>
+    <!-- readonly -->
+    <input id="input-text" type="text" value="123" />
+    <button onclick="goChange()">다크모드</button>
+
+    <script>
+      /* dom객체랑 jquery객체 구분
+        dom 메소드랑 jquery메소드 혼용 안됨
+        jquery로 시작한 문법은 jquery메소드로 사용해야함 */
+
+      // jquery는 $(css선택자) 방식 : jquery 접근방식으로 객체 접근
+      // window.onload와 같은 기능
+      $(document).ready(function () {
+        // alert("시작");
+      });
+
+      // innerText, innerHTML <=> text(), html()
+      console.log($("#hi").text()); // innerText처럼 안에 있는 '안녕'출력
+      $("#hi").text("잘가"); // 안에 있는 컨텐츠 셋팅 '잘가'출력
+      console.log($("#hi").html());
+      $("#hi").html("<strong>집에보내줘</string>"); // '집에보내줘'가 strong처리돼서 바뀜
+
+      // css : 스타일 속성 가져오거나 변경
+      /*
+      const divEl = document.querySelector("#hi");
+      divEl.setAttribute("style", "");
+      divEl.style.color = "red";
+      이것과 같은 것
+      */
+      // $("#hi").css("속성명", "값")
+      $("#hi").css("color", "red");
+      console.log($("#hi").css("color", "blue").text()); // jquery는 체이닝 연결이 장점
+
+      // attr() : html 속성을 다룸
+      const attr = $("#link").attr("href");
+      console.log(attr); // https://www.naver.com 출력
+      $("#link").attr("href", "https://www.daum.net").text("다음");
+      console.log(attr);
+
+      $("#input-text").attr("readonly", true); // readonly, disable 같은 속성은 true/false로 실행 취소
+
+      // poro() : js의 프러퍼티를 다룸 (attr과 비슷한 기능)
+      const prop = $("#input-text").prop("readonly");
+      const prop2 = $("#link").prop("href");
+      console.log(prop);
+      console.log(prop2);
+
+      // addClass() : 요소에 class추가 => classList.add(), setAttributes("class", "bg-pink") 이런 것들과 같음
+      $("#hi").addClass("bg-pink"); // 기존 class지우지 않음
+
+      // removeClass() : 요소에 class삭제
+      $("#hi").removeClass("blue");
+
+      // toggleClass() : class 가지고 있으면 제거. 없으면 추가
+
+      // 버튼 눌렀을 때 다크모드, 라이트모드로 바꾸기
+      function goChange() {
+        $("body").toggleClass("dark-mode");
+
+        /* dom객체 접근 방식으로 작성 시 */
+        // const isDark = document
+        //   .querySelector("body")
+        //   .classList.contains("dark-mode");
+        // console.log(isDark);
+
+        // if(isDark){
+        //     $("button").text("라이트모드")
+        // }else{
+        //     $("button").text("다크모드")
+        // }
+
+        /* jquery 접근 방식으로 작성 시 */
+        const isDark = $("body").hasClass("dark-mode");
+        console.log(isDark);
+
+        if (isDark) {
+          $("button").text("라이트모드");
+        } else {
+          $("button").text("다크모드");
+        }
+      }
+
+      // val() : 속성의 값
+      // ()안에 값을 넣으면 속성 값이 바뀜
+      console.log($("#input-text").val());
+      $("#input-text").val("456");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미션</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="airport"></div>
+    <script>
+      const authKey =
+        "s9LtJ4f28XKtHHjtRa94y0gWEWaArpqpuNkbkpRyVgYYyLDPigB20QyFaSduFmFXXydgwTJSD4Ef53t5Z1%2BnFg%3D%3D";
+      const url = `http://apis.data.go.kr/B551177/AviationStatsByAirline/getTotalNumberOfPassenger?serviceKey=${authKey}&from_month=202404&to_month=202404&periodicity=0&domestic_foregin=I&passenger_type=1&type=json`;
+
+      //const airlineArr = ["대한항공", "아시아나항공", "에어부산", "에어서울", "에어인천", "이스타항공"];
+      const arr = [];
+
+      const goFetchAndAsync = async () => {
+        const response = await fetch(url);
+        const airportEl = document.querySelector("#airport");
+        if (!response.ok) {
+          throw new Error("err");
+        }
+        const result = await response.json();
+        const el = result.response.body.items;
+        console.log(el);
+        for (item of el) {
+          airportEl.innerHTML += `<p>항공사 : ${item.airline}, 여객수 : ${item.passenger}</p>`;
+        }
+      };
+      goFetchAndAsync();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할일기본</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2></h2>
+    <ul type="none" id="todoList">
+      <li>
+        <input type="checkbox" class="completeCheckbox" /> 첫번째 할일
+        <button class="deleteBtn">삭제</button>
+      </li>
+      <li>
+        <input type="checkbox" class="completeCheckbox" /> 두번째 할일
+        <button class="deleteBtn">삭제</button>
+      </li>
+      <li>
+        <input type="checkbox" class="completeCheckbox" /> 세번째 할일
+        <button class="deleteBtn">삭제</button>
+      </li>
+    </ul>
+
+    <input type="text" id="todoText" />
+    <button id="addBtn">추가</button>
+    <button id="saveBtn">저장</button>
+
+    <script>
+      /* 날짜 셋팅하기 */
+      $(document).ready(function () {
+        const date = new Date();
+        const today = `${date.getMonth() + 1}월 ${date.getDate()}일`;
+
+        // document.querySelector("h2").innerText = `${today}의 할 일`;
+
+        $("h2").text(`${today}의 할 일`);
+      });
+
+      /* 할 일 추가하기 */
+      const addBtn = $("#addBtn");
+      const ulEl = $("#todoList");
+      const inputEl = $("#todoText");
+
+      addBtn.click(() => {
+        const todoVal = inputEl.val();
+
+        // 새로운 li 태그 생성
+        const newLiEl = $("<li></li>");
+
+        // 새로운 checkbox 생성
+        const newCheckBox = $(
+          "<input type='checkbox' class='completeCheckbox'>"
+        );
+
+        // li 태그에 input 자식요소 붙이기
+        newLiEl.append(newCheckBox);
+
+        // 새로운 할 일 텍스트 붙이기
+        // li 태그에 input 자식요소로 붙인 곳에 text붙이기
+        newLiEl.append(" " + todoVal + " ");
+
+        // 새로운 button생성
+        const newBtnEl = $("<button class = 'deleteBtn'>삭제</button>");
+        newLiEl.append(newBtnEl);
+
+        newBtnEl.addClass("deleteBtn");
+        newLiEl.append(newBtnEl);
+
+        // 새로운 li요소가 만들어질 때 이벤트가 같이 추가될 수 있도록 붙여줌
+        // (아래 click이벤트와 같음)
+
+        newLiEl.on("click", (e) => {
+          // 1) 클릭된 요소가 체크박스인 경우
+          if ($(e.target).hasClass("completeCheckbox")) {
+            // toggle 밑줄 넣었다가 뺐다가 하기
+            // li태그에 completed 클래스 +-
+            newLiEl.toggleClass("completed"); // li에 밑줄 긋는 class넣기
+          }
+          // 2) 클릭된 요소가 삭제버튼인 경우
+          if ($(e.target).hasClass("deleteBtn")) {
+            // 아이템삭제 = li태그 삭제
+            newLiEl.remove();
+          }
+        });
+
+        // ul 태그에 붙이기
+        ulEl.append(newLiEl);
+
+        // 할일 입력창 초기화하기
+        inputEl.val("");
+      });
+
+      /* 체크박스, 삭제 기능 만들기 */
+      const todoItems = $("#todoList li"); // 안에 있는 li 선택하기
+
+      // .each(인덱스, 엘리먼트요소)
+      todoItems.each((index, item) => {
+        // item = li가 하나씩 들어옴
+        $(item).click((e) => {
+          // 1) 클릭된 요소가 체크박스인 경우
+          if ($(e.target).hasClass("completeCheckbox")) {
+            // toggle 밑줄 넣었다가 뺐다가 하기
+            // li태그에 completed 클래스 +-
+            $(item).toggleClass("completed"); // li에 밑줄 긋는 class넣기
+          }
+          // 2) 클릭된 요소가 삭제버튼인 경우
+          if ($(e.target).hasClass("deleteBtn")) {
+            // 아이템삭제 = li태그 삭제
+            $(item).remove();
+          }
+        });
+      });
+
+      /* 로컬스토리지에 저장해보기
+      [
+      {text: '할일내용텍스트', complete: 'check활성화여부(true, false)'},
+      {text: '할일내용텍스트', complete: 'check활성화여부(true, false)'}
+      ] 이렇게 생긴 배열로 저장되어야 함
+      */
+
+      // const arr = [
+      //   { text: "할일내용텍스트", complete: "check활성화여부(true, false)" },
+      //   { text: "할일내용텍스트", complete: "check활성화여부(true, false)" },
+      // ];
+      $("#saveBtn").click(() => {
+        const leEls = $("li");
+        let arr = [];
+
+        // liEls.each((index, ele) => {
+        //   const todo = {
+        //     text: $(ele).text().replaceAll("\n", "").trim().split(" ")[0],
+        //     complete: $(ele).hasClass("completed"),
+        //   };
+        //   list.push(todo);
+        // });
+        // localStorage.setItem("todoList", JSON.stringify(list));
+
+        for (let i = 0; i < $("li").length; i++) {
+          const todoText = $("li")[i].outerText.split("삭제")[0];
+          console.log("제이쿼리용>>>", $($("li")[i]).text().split("삭제")[0]);
+
+          const checkTF = $($("li")[i]).hasClass("completed");
+
+          console.log(`text : ${todoText}, complete: ${checkTF}`);
+          const todo = {
+            text: todoText,
+            complete: checkTF,
+          };
+          arr.push(todo);
+          console.log(arr);
+        }
+        localStorage.setItem("todoList", JSON.stringify(arr));
+      });
+    </script>
+  </body>
+</html>

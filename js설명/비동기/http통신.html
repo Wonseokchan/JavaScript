@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http통신</title>
+
+    <!-- axios cdn 링크 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      /* HTTP 통신 : 웹 브라우저에서 서버에 있는 텍스트, 이미지, 여러가지 자료 가져올 때
+                    HTTP 프로토콜을 통해 자료 주고받을 수 있음
+
+        클라이언트 -> request -> 서버 -> response -> 클라이언트
+
+        ** AJAX : 웹 사이트에서 동적으로 서버에서 데이터를 주고받을 수 있게 해주는 기술
+         - XML, JSON : 데이터 포맷
+         - JSON은 AJAX 통신할 때 주고받는 데이터 포맷일 뿐. JS 객체가 아님.
+      */
+      const authKey =
+        "s9LtJ4f28XKtHHjtRa94y0gWEWaArpqpuNkbkpRyVgYYyLDPigB20QyFaSduFmFXXydgwTJSD4Ef53t5Z1%2BnFg%3D%3D";
+      const url = `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&regId=11B10101&tmFc=202405121800&dataType=json`;
+
+      //fetch 사용 시 자동으로 get요청
+      const goFetch = () => {
+        fetch(url)
+          .then((res) => {
+            console.log(res);
+            if (!res.ok) {
+              throw new Error("err");
+            }
+
+            //response.json() : json 데이터를 파싱해서 js 객체로 반환
+            //response.text() : 텍스트 반환
+            //response.blob() : 바이너리 데이터 반환
+            return res.json();
+          })
+          .then((result) => {
+            console.log(result.response.body.items.item[0]);
+          })
+          .catch(() => {
+            console.log("error");
+          });
+      };
+      goFetch();
+
+      const goFetchAndAsync = async () => {
+        const response = await fetch(url);
+        console.log(response);
+        if (!response.ok) {
+          throw new Error("err");
+        }
+        const result = await response.json();
+        console.log(result);
+      };
+      //goFetchAndAsync();
+
+      //axios(라이브러리)
+      const goAxios = () => {
+        axios.get(url).then((res) => {
+          if (res.state != 200) {
+            throw new Error("err");
+          }
+          console.log(res.data.response.body.items.item);
+          const info = res.data.response.body.items.item;
+        });
+      };
+      //goAxios();
+
+      const goAxiosAndAsync = async () => {
+        const response = await axios.get(url);
+        if (response.status != 200) {
+          throw new Error("err");
+        }
+        console.log(response.data.response.body.items.item);
+      };
+      //goAxiosAndAsync();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>종합</title>
+  </head>
+  <body>
+    <script>
+      /* 동기, 비동기 : 처리방식
+        비동기처리 : promise 객체, async & await
+      */
+
+      //Promise((resolve, reject) => {}) : 생산자 or 소비자 관점
+      //Promise 객체 생성
+      const isTrue = true;
+      const promise = new Promise((resolve, reject) => {
+        if (isTrue) {
+          resolve("완료");
+        } else {
+          reject(new Error("에러"));
+        }
+      });
+      promise
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+        .finally(() => console.log("마지막"));
+
+      //async : 함수 -> 비동기함수 => 블록문이 프로미스 객체
+      const sum = () => {
+        console.log("결과!");
+      };
+
+      const sum2 = async () => {
+        console.log("결과!!");
+      };
+      console.log("=>", sum());
+      console.log("==>", sum2());
+      console.log(
+        "===>",
+        sum2().then((res) => console.log(res))
+      );
+    </script>
+  </body>
+</html>

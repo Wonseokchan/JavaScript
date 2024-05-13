@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/TODO.css" />
+    <style>
+      main {
+        /* list-style-position: inside;
+        width: 600px;
+        max-width: 100%; */
+        background: hsl(55, 100%, 68%);
+        box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
+        padding: 20px;
+        margin: 0;
+        border-radius: 0.1rem;
+      }
+      button {
+        background-color: rgb(248, 206, 143);
+        border: 1px solid rgb(175, 103, 36);
+      }
+      button:hover {
+        background-color: rgb(229, 165, 119);
+      }
+      button:active {
+        background-color: rgb(229, 165, 119);
+      }
+      .done {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column">
+      <main>
+        <h1 id="date">dateEl.textContent</h1>
+        <!-- <h1>5월 3일 할 일</h1> -->
+        <label
+          class="mcui-checkbox"
+          style="display: flex; justify-content: space-between"
+        >
+          <input type="checkbox" />
+          <div>
+            <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+              <title>checkmark-circle</title>
+              <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+            </svg>
+          </div>
+          <div class="TODO">첫번째 할일</div>
+          <button class="remove">remove</button>
+        </label>
+
+        <label
+          class="mcui-checkbox"
+          style="display: flex; justify-content: space-between"
+        >
+          <input type="checkbox" />
+          <div>
+            <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+              <title>checkmark-circle</title>
+              <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+            </svg>
+          </div>
+          <div class="TODO">두번째 할일</div>
+          <button class="remove">remove</button>
+        </label>
+
+        <label
+          class="mcui-checkbox"
+          style="display: flex; justify-content: space-between"
+        >
+          <input type="checkbox" id="indeterminate" />
+          <div>
+            <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+              <title>checkmark-circle</title>
+              <polyline
+                id="polyline"
+                points="7.57 15.87 12.62 21.07 23.43 9.93"
+              />
+            </svg>
+          </div>
+          <div class="TODO">세번째 할일</div>
+          <button class="remove">remove</button>
+        </label>
+      </main>
+
+      <div style="margin-top: 20px; /* transform: translateX(-50%); */">
+        <input class="addTODO" type="text" placeholder="할 일 추가하기" />
+        <button class="addButton">ADD</button>
+      </div>
+    </div>
+
+    <script>
+      /* add 버튼부터 만들어보자 */
+      let addB = document.querySelector(".addButton");
+      const mainEl = document.querySelector("main");
+      let addTextValue = document.querySelector(".addTODO");
+
+      addB.addEventListener("click", (e) => {
+        let inputVal = addTextValue.value;
+        if (inputVal != "") {
+          // 입력값 없을 때는 추가 안되게
+          // 바로 innerHTML로 넣으려니까 add 이벤트 동작이 지워져버리더라,
+          // 단순히 문자열을 추가하는거기 때문에
+          // createElement로 새로운 label요소를 만들어 준 뒤
+          // 그 안에 innerHTML로 추가한 다음
+          // mailEl에 appendChild하는 것이 안전
+          let newLabel = document.createElement("label");
+          newLabel.className = "mcui-checkbox";
+          newLabel.style.display = "flex";
+          newLabel.style.justifyContent = "space-between";
+          newLabel.innerHTML = `
+        <input type="checkbox" />
+        <div>
+          <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+            <title>checkmark-circle</title>
+            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+          </svg>
+        </div>
+        <div class="TODO">${inputVal}</div>
+        <button class="remove">remove</button>
+      `;
+
+          mainEl.appendChild(newLabel);
+          addTextValue.value = ""; // 추가함
+        }
+      });
+
+      /* ADD 버튼 대신 엔터쳐도 추가되게끔 하기 */
+      // ADD 버튼 눌렀을 때랑 같은 메소드
+      addTextValue.addEventListener("keydown", (e) => {
+        let inputVal = addTextValue.value;
+
+        if (e.keyCode == 13 && inputVal != "") {
+          // keyCode 13이 엔터임. 엔터 쳤을 때도 입력되게끔 하기
+
+          let newLabel = document.createElement("label");
+          newLabel.className = "mcui-checkbox";
+          newLabel.style.display = "flex";
+          newLabel.style.justifyContent = "space-between";
+          newLabel.innerHTML = `
+        <input type="checkbox" />
+        <div>
+          <svg class="mcui-check" viewBox="-2 -2 35 35" aria-hidden="true">
+            <title>checkmark-circle</title>
+            <polyline points="7.57 15.87 12.62 21.07 23.43 9.93" />
+          </svg>
+        </div>
+        <div class="TODO">${inputVal}</div>
+        <button class="remove">remove</button>
+      `;
+
+          mainEl.appendChild(newLabel);
+          addTextValue.value = "";
+          // 왜 이건 되고, inputVal = ""; 이건 안되는지?????
+        }
+      });
+
+      /* remove 버튼 만들기 */
+      mainEl.addEventListener("click", (e) => {
+        if (e.target.classList.contains("remove")) {
+          mainEl.removeChild(e.target.parentElement);
+        }
+
+        /* 글자 클릭했을 때 줄 그어지게 만드는 데코 */
+        const checkboxState = document.querySelectorAll(".mcui-checkbox");
+        // checkbox들어있는 label로 먼저 접근
+        checkboxState.forEach((element) => {
+          if (element.children[0].checked) {
+            console.log(element.children[2].classList.toggle("done"));
+            // toggle로 class done 넣어서 line추가하기
+          }
+        });
+      });
+
+      /* 현재 날짜로 제목 쓰기 */
+      const dateEl = document.getElementById("date");
+      const today = new Date();
+
+      const month = today.getMonth() + 1;
+      const day = today.getDate();
+
+      dateEl.textContent = `-${month}/ ${day} Todo List-`;
+    </script>
+  </body>
+</html>

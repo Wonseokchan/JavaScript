@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠키</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <button>하루동안 안보이기</button>
+    </div>
+
+    <script>
+      /* 웹스토리지 : 쿠키
+            - 웹 페이지에서 서핑하는 동안 계속해서 사용자의 컴퓨터에 저장되는 텍스트 파일
+            - 유효기간을 설정할 수 있다. 유효기간 지나면 쿠키는 사라짐
+
+            로그인 유지, 인증처리, 사용자설정 할 때 쿠키를 많이 사용
+            쿠키는 키값을 ; 세미콜론으로 구분한다
+        */
+
+      //   window.onload = () => {
+      //     const name1 = "신짱구";
+      //     const expireDate1 = new Date("2024-05-10T13:00:00");
+
+      //     document.cookie = `username1=${name1};expires=${expireDate1};path=/`;
+      //     console.log(document.cookie);
+      //   };
+
+      // button 클릭했을 때 cookie에 popup이라는 이름을 가진
+      // popup(키)="main"(값). 하루 이후로 쿠키 셋팅
+
+      //   const expireDate2 = new Date("2024-05-10T13:00:00");
+      //   document.querySelector("button").addEventListener("click", () => {
+      //     document.cookie = `popup=main;expires=${expireDate2};path=/`;
+
+      /*
+        이런 방법도 있음 )
+        const today = new Date();
+        today.setDate(today.getDate()+1)  <<= 다음날을 today객체에 setDate로 셋팅
+        */
+      //   });
+
+      window.onload = () => {
+        // 쿠키의 날짜가 오늘날짜보다 살아있으면 box를 숨겨야함
+
+        const cookies = document.cookie.split(";");
+        // document.cookie = 현재 살아있는 쿠키의 정보가 담겨져있음
+        // 키=값;키=값;키=값...
+
+        cookies.forEach((ele) => {
+          const [key, value] = ele.trim().split("="); // [키, 값]
+          console.log(key);
+          console.log(value);
+
+          if (key == "popup") {
+            document.querySelector("#box").style.display = "none";
+          }
+        });
+      };
+
+      /* 구조분해할당 */
+      const arr = [1, 2, 3];
+      const [num1, num2, num3] = arr; // arr[]길이 만큼 순서대로 [num..]맵핑되어 들어감
+      console.log(num1);
+      console.log(num2);
+      console.log(num3);
+
+      // 객체리터럴은 키 값 일치하게 넣어주면 자동 맵핑됨
+      const obj = { name: "신짱구", age: 5 };
+      const { name, age } = obj;
+      console.log(name);
+      console.log(age);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <ul>
+      <li>목록1</li>
+      <li>목록2</li>
+    </ul>
+
+    <label><input type="radio" value="M" />남자</label>
+    <label><input type="radio" value="F" />여자</label>
+
+    <script>
+      /* dom객체접근, jQuery방식의 접근 : $(css 선택자) */
+      console.log($("li"));
+      const liEls = $("li");
+
+      liEls.each((index, el) => {
+        console.log(el); // li 반환
+        // 목록1만 bg pink로 바꾸기
+        if ($(el).text() == "목록1") {
+          $(el).css("background-color", "pink");
+        }
+      });
+
+      liEls.each(function () {
+        console.log("this>> ", this); // li 반환
+        if ($(this).text() == "목록1") {
+          $(this).css("color", "blue");
+        }
+      });
+
+      // attr(), prop()
+      // true / false 반환값 사용 할 때는 prop()많이 씀
+
+      //   $("input").attr("checked", true);
+
+      $(document).ready(function () {
+        // $("input").prop("checked", true); // 시작했을 때 체크 돼있게끔
+      });
+
+      // 남자만 활성화해보기
+      $("input").each((i, ele) => {
+        if ($(ele).val() == "M") {
+          // val로 value값 꺼내오기
+          $(ele).prop("checked", true);
+        }
+      });
+
+      // 다시 업그레이드
+      $("input").each(function () {
+        if ($(this).val == "M") {
+          $(this).attr("checked", true);
+        }
+      });
+    </script>
+  </body>
+</html>

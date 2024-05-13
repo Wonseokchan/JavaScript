@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동기와비동기</title>
+  </head>
+  <body>
+    <script>
+      /* 작동방식(동기처리 sync, 비동기처리 async)
+        - 동기처리 : 하나 작업이 끝나야 그 다음 작업이 수행
+        - 비동기처리 : 동시에 작업시작이 들어가고 끝나는대로 하나씩 뱉어줌
+                       실행시간이 다른 함수들을 원하는 처리 순서에 맞게 프로그래밍
+         */
+      function displayA() {
+        console.log("A");
+      }
+      function displayB() {
+        setTimeout(() => {
+          console.log("B");
+        }, 2000);
+        // 원래는 순서대로 A B C가 찍혀야하지만
+        // setTimeout()처리를 했기 때문에
+        // A 와 C가 먼저 처리되고 그 이후에 B가 처리됨
+      }
+      function displayC() {
+        console.log("C");
+      }
+      //   displayA();
+      //   displayB();
+      //   displayC();
+
+      /* 비동기 처리의 방법
+        1) 콜백함수(함수의 인수로 함수를 넣는 함수) */
+
+      function testA() {
+        console.log("1번");
+      }
+      // testB가 실행된 후 testC가 실행되어야 하는 경우,
+      // testB가 끝난 후에 testC가 실행될 수 있게끔
+      // callback함수로 testC를 넣어 testB가 끝난 뒤에 호출될 수 있도록 비동기 처리 함
+      function testB(callback) {
+        setTimeout(() => {
+          console.log("2번");
+          callback();
+        }, 2000);
+      }
+      function testC() {
+        console.log("3번");
+      }
+      //   testA();
+      //   testB(testC);
+
+      function order(coffee, callback) {
+        console.log(`주문접수: ${coffee}`);
+
+        setTimeout(() => {
+          callback(coffee);
+        }, 3000);
+      }
+      function display(coffee) {
+        console.log(`${coffee} 준비완료`);
+      }
+      order("카페라떼", display);
+    </script>
+  </body>
+</html>

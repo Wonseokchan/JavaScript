@@ -38,7 +38,7 @@
       </div>
       <div>
         <input type="text" />
-        <button>추가</button>
+        <button class="addbt">추가</button>
       </div>
       <!-- <div>
         <input id="chk04" type="checkbox" />
@@ -51,16 +51,22 @@
       <div class="total">Total checked:</div> -->
     </section>
     <script>
+      const divEl = document.querySelector("div");
       const planEl = document.querySelector(".plan");
       const labelEl = document.querySelector("label");
-      let isConfirm = false;
+      const addbtEl = document.querySelector(".addbt");
+      const deleteEl = document.querySelector(".icon-delete");
       planEl.addEventListener("click", (e) => {
         labelEl.style.textDecoration = "line-through";
-        isConfirm = false;
-        if (!isConfirm) {
-          labelEl.style.labelEl.style.textDecoration = "";
-        }
       });
+
+      addbtEl.addEventListener("click", () => {});
+
+      for (item of deleteEl) {
+        item.addEventListener("click", (e) => {
+          divEl.removeChild(planEl);
+        });
+      }
     </script>
   </body>
 </html>
