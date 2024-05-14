@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기와반복문</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="div-body"></div>
+    <script>
+      const authKey =
+        "s9LtJ4f28XKtHHjtRa94y0gWEWaArpqpuNkbkpRyVgYYyLDPigB20QyFaSduFmFXXydgwTJSD4Ef53t5Z1%2BnFg%3D%3D";
+      const url = `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&regId=11B10101&tmFc=202405131800&dataType=json`;
+      const regArr = [
+        "11A00101",
+        "11B10101",
+        "11B10102",
+        "11B10103",
+        "11B20101",
+      ];
+      const arr = [];
+      /* 날씨 데이터 가져오기 */
+      const getData = async () => {
+        // regArr.forEach(async (v) => {
+        //   const response = await axios.get(
+        //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&$regId=${v}&tmFc=202405131800&dataType=json`
+        //   );
+        //   arr.push(response.data.response.body.items.item[0]);
+        // });
+        // console.log(arr);
+
+        for (item of regArr) {
+          const response = await axios.get(
+            `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${authKey}&numOfRows=10&pageNo=1&regId=${item}&tmFc=202405131800&dataType=json`
+          );
+          arr.push(response.data.response.body.items.item[0]);
+        }
+        if (regArr.length == arr.length) {
+          show();
+        }
+      };
+      getData();
+
+      const show = () => {
+        const el = document.querySelector("#div-body");
+        arr.forEach((v) => {
+          el.innerHTML += `<p>${v.regId}</p>`;
+        });
+      };
+    </script>
+  </body>
+</html>
